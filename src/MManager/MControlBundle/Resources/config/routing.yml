@@ -1,0 +1,23 @@
+m_manager_m_control_homepage:
+    path:     /
+    defaults: { _controller: MManagerMControlBundle:Page:index }
+    requirements:
+            _method: GET
+
+MManagerMControlBundle_homepage:
+    path:     /
+    defaults: { _controller: MManagerMControlBundle:Page:index }
+    requirements:
+            _method: GET
+            
+MManagerMControlBundle_modemformview:
+    path:     /modemformview/
+    defaults: { _controller: MManagerMControlBundle:Page:modemFormView }
+    requirements:
+            _method: GET|POST
+            
+MManagerMControlBundle_main:
+    path:     /
+    defaults: { _controller: MManagerMControlBundle:Page:index }
+    requirements:
+            _method: GET

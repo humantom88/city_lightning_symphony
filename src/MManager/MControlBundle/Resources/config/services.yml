@@ -1,0 +1,7 @@
+parameters:
+#    m_manager_m_control.example.class: MManager\MControlBundle\Example
+
+services:
+#    m_manager_m_control.example:
+#        class: %m_manager_m_control.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

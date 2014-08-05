@@ -1,0 +1,16 @@
+{# src/Blogger/BlogBundle/Resources/views/layout.html.twig #}
+{% extends '::mmanager.base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('bundles/modemmanager/css/modemmanager.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+{% block sidebar %}
+    Sidebar content
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script href="{{ asset('bundles/modemmanager/js/MainForm/main.js')}}" src=""></script>
+{% endblock %}

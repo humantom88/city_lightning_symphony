@@ -1,0 +1,29 @@
+{% extends 'MManagerMControlBundle::layout.html.twig' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block body %}
+    <header>
+        <h1>Contact sysblog</h1>
+    </header>
+    
+    {% for flashMessage in app.session.flashbag.get('mmanager-notice') %}
+        <div class="blogger-notice">
+            {{ flashMessage }}
+        </div>
+    {% endfor %}
+    
+    <p>Want to contact sysblog?</p>
+    
+    <form action="{{ path('MManagerMControlBundle_modemformview') }}" method="post" {{ form_enctype(form) }} class="blogger">
+        {{ form_errors(form) }}
+        
+        {{ form_row(form.modemlocation) }}
+        {{ form_row(form.modemphone) }}
+        {{ form_row(form.modemserial) }}
+        
+        {{ form_rest(form) }}
+        
+        <input type="submit" value="Add new modem">
+    </form>
+{% endblock %}
