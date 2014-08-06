@@ -11,7 +11,7 @@ MManagerMControlBundle_homepage:
             _method: GET
             
 MManagerMControlBundle_modemformview:
-    path:     /modemformview/
+    path:     /modemsaddform/
     defaults: { _controller: MManagerMControlBundle:Page:modemFormView }
     requirements:
             _method: GET|POST
@@ -21,3 +21,16 @@ MManagerMControlBundle_main:
     defaults: { _controller: MManagerMControlBundle:Page:index }
     requirements:
             _method: GET
+            
+MManagerMControlBundle_modem_show:
+    pattern:  /{id}
+    defaults: { _controller: MManagerMControlBundle:modem:show }
+    requirements:
+        _method:  GET
+        id: \d+
+        
+MManagerMControlBundle_modem_showAll:
+    pattern:  /modemlist/
+    defaults: { _controller: MManagerMControlBundle:modem:showAll }
+    requirements:
+        _method:  GET

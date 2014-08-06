@@ -1,0 +1,35 @@
+<?php
+// src/Blogger/BlogBundle/Entity/Blog.php
+
+namespace MManager\MControlBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="modems")
+ */
+class Modem
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $modem_id;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $modem_location;
+
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    protected $modem_serial;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    protected $modem_phone;
+}

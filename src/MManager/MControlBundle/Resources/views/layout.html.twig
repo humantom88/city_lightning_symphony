@@ -7,10 +7,9 @@
 {% endblock %}
 
 {% block sidebar %}
-    Sidebar content
 {% endblock %}
 
 {% block javascripts %}
     {{ parent() }}
-    <script href="{{ asset('bundles/modemmanager/js/MainForm/main.js')}}" src=""></script>
+    <script type="text/javascript" src="{{ asset('bundles/modemmanager/js/MainForm/main.js')}}" ></script>
 {% endblock %}

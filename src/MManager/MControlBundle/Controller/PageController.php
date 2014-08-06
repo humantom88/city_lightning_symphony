@@ -13,11 +13,6 @@ use MManager\MControlBundle\Form\ModemEnquiryType;
         return $this->render('MManagerMControlBundle:Page:index.html.twig');
     }
     
-    public function modemlistAction()
-    {
-        return $this->render('MManagerMControlBundle:about.html.twig');
-    }
-    
     public function modemFormViewAction()
     {
         $enquiry = new ModemEnquiry();

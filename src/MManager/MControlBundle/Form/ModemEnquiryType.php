@@ -9,14 +9,14 @@ class ModemEnquiryType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('modemphone');
-        $builder->add('modemlocation', 'textarea');
-        $builder->add('modemserial');
+        $builder->add('modem_phone');
+        $builder->add('modem_location', 'textarea');
+        $builder->add('modem_serial');
     }
 
     public function getName()
     {
-        return 'modemserial';
+        return 'modem_serial';
     }
 }
 
