@@ -1,0 +1,14 @@
+{% extends 'MManagerMControlBundle::layout.html.twig' %}
+
+{% block title %}{{ modemgroup.getModemGroupName }}{% endblock %}
+
+{% block body %}
+    <article class="modem">
+        <header>
+            <h2>{{ modem.getModemGroupName }}</h2>
+        </header>
+        <div>
+            <p>{{ modem.getModemGroupId }}</p>
+        </div>
+    </article>
+{% endblock %}

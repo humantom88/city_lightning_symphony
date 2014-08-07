@@ -1,0 +1,63 @@
+<?php
+
+namespace MManager\MControlBundle\Classes;
+
+class Gammu {
+    protected $inboxPath;
+    protected $outboxPath;
+    protected $sent_path;
+    protected $errors_path;
+    
+    public function __construct($config = "") {
+        if ($config != "") {
+            $this->inboxPath = $config['inbox'];
+            $this->outboxPath = $config['outbox'];
+            $this->sentPath = $config['sent'];
+            $this->errorsPath = $config['errors'];
+        }
+    }
+    
+    public function getInboxPath() {
+        return $this->inboxPath;
+    }
+    
+    public function setInboxPath($inboxPath) {
+        $this->inboxPath = $inboxPath;
+    }
+    
+    public function getOutboxPath() {
+        return $this->outboxPath;
+    }
+    
+    public function setOutboxPath($outboxPath) {
+        $this->outboxPath = $outboxPath;
+    }
+    
+    public function getSentPath() {
+        return $this->sentPath;
+    }
+    
+    public function setSentPath($sentPath) {
+        $this->sentPath = $sentPath;
+    }
+    
+    public function sendSMS($phone, $smsText) {
+        file_put_contents($this->getOutboxPath().'OUT'. $phone . '.txt', $smsText);
+    }
+    
+    public function readIncomeSMSList() {
+        if ($this->inboxPath) {
+            return readdir($this->inboxPath);
+        } else {
+            return false;
+        }
+    }
+
+    public function readSentSMSList() {
+        if ($this->sentPath) {
+            return readdir($this->sentPath);
+        } else {
+            return false;
+        }
+    }
+}

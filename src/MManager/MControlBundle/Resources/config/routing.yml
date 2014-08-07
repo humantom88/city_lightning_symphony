@@ -1,9 +1,3 @@
-m_manager_m_control_homepage:
-    path:     /
-    defaults: { _controller: MManagerMControlBundle:Page:index }
-    requirements:
-            _method: GET
-
 MManagerMControlBundle_homepage:
     path:     /
     defaults: { _controller: MManagerMControlBundle:Page:index }
@@ -16,6 +10,25 @@ MManagerMControlBundle_modemformview:
     requirements:
             _method: GET|POST
             
+MManagerMControlBundle_modem_sendsms:
+    path:     /sendsms/
+    defaults: { _controller: MManagerMControlBundle:Modem:sendSMS }
+    requirements:
+            _method: GET|POST
+
+MManagerMControlBundle_modemgroup_show:
+    path:     /modemgroupslist/{id}
+    defaults: { _controller: MManagerMControlBundle:ModemGroup:show }
+    requirements:
+        _method: GET
+        id: \d+
+        
+MManagerMControlBundle_modemgroup_showAll:
+    path:     /modemgroupslist/
+    defaults: { _controller: MManagerMControlBundle:ModemGroup:showAll }
+    requirements:
+            _method: GET
+
 MManagerMControlBundle_main:
     path:     /
     defaults: { _controller: MManagerMControlBundle:Page:index }
@@ -24,13 +37,20 @@ MManagerMControlBundle_main:
             
 MManagerMControlBundle_modem_show:
     pattern:  /{id}
-    defaults: { _controller: MManagerMControlBundle:modem:show }
+    defaults: { _controller: MManagerMControlBundle:Modem:show }
     requirements:
         _method:  GET
         id: \d+
         
 MManagerMControlBundle_modem_showAll:
     pattern:  /modemlist/
-    defaults: { _controller: MManagerMControlBundle:modem:showAll }
+    defaults: { _controller: MManagerMControlBundle:Modem:showAll }
     requirements:
-        _method:  GET
+        _method:  GET|POST
+        
+MManagerMControlBundle_modem_deletemodem:
+    path:   /deletemodem/
+    defaults: { _controller: MManagerMControlBundle:Modem:deleteModem }
+    requirements:
+            _method: GET|POST
+    

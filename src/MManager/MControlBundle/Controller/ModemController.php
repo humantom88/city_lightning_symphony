@@ -4,6 +4,10 @@
 namespace MManager\MControlBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use MManager\MControlBundle\Classes\Gammu;
+use MManager\MControlBundle\Entity\Modem;
+use MManager\MControlBundle\Entity\ModemEnquiry;
+use MManager\MControlBundle\Form\ModemEnquiryType;
 /**
  * Blog controller.
  */
@@ -29,6 +33,39 @@ class ModemController extends Controller
     
     public function showAllAction()
     {
+        $enquiry = new ModemEnquiry();
+        $form = $this->createForm(new ModemEnquiryType(), $enquiry);
+        $request = $this->getRequest();
+        
+        if ($request->getMethod() == 'POST') {
+            $form->bind($request);
+
+            if ($form->isValid()) {
+                $em = $this->getDoctrine()->getEntityManager();
+                
+                $newmodem= new Modem();
+                $data = $form->getData();
+                $newmodem->setModemLocation($data->getModemLocation());
+                $newmodem->setModemPhone($data->getModemPhone());
+                $newmodem->setModemSerial($data->getModemSerial());
+                
+                $em->persist($newmodem);
+                $em->flush();
+                
+                //$message = \Swift_Message::newInstance()
+                //    ->setSubject('Contact enquiry from symblog')
+                //    ->setFrom('enquiries@symblog.co.uk')
+                //    ->setTo($this->container->getParameter('mmanager_mcontrol.emails.contact_email'))
+                //    ->setBody($this->renderView('MManagerMControlBundle:Page:contactEmail.txt.twig', array('enquiry' => $enquiry)));
+                //$this->get('mailer')->send($message);
+
+                //$this->get('session')->setFlash('mmanager-notice', 'Your contact enquiry was successfully sent. Thank you!');
+
+                // Redirect - This is important to prevent users re-posting
+                // the form if they refresh the page
+                return $this->redirect($this->generateUrl('MManagerMControlBundle_modem_showAll'));
+            }
+        }
         $em = $this->getDoctrine()->getManager();
         
         $modems = $em->getRepository('MManagerMControlBundle:Modem')->findAll();
@@ -39,7 +76,8 @@ class ModemController extends Controller
         
         return $this->render('MManagerMControlBundle:Modem:showall.html.twig', array(
             'modems' => $modems,
-        ));
+            'form' => $form->createView(),
+        ));        
     }
     
     public function createAction()
@@ -66,5 +104,48 @@ class ModemController extends Controller
         return array(
            'entity' => $entity,
            'form' => $form->createView());
+    }
+    
+    public function sendSMSAction()
+    {
+        $gammu = new Gammu([
+            'inbox' => 'c:/gammu/inbox/',
+            'outbox' => 'c:/gammu/outbox/',
+            'sent' => 'c:/gammu/sent/',
+            'errors' => 'c:/gammu/errors/'
+        ]);
+        
+        $modems = $this->getModemAsArray();
+        
+        foreach ($modems as $modem) {
+            $gammu->sendSMS($modem['modem_phone'], '5492 out3 pulse2');
+            file_put_contents('c:/log/log.txt', date('Y-m-d-h-m-s') . ' Message ' . '"5492 out3 pulse2"' . ' was sent to '. $modem['modem_phone'] . '.' . chr(13) , FILE_APPEND);
+        }
+        return $this->showAllAction();
+    }
+    
+    public function getModemAsArray() {
+        $request = $this->getRequest();
+        $em = $this->getDoctrine()->getManager();
+        $modems = $em->getRepository('MManagerMControlBundle:Modem')->findBy(array ('modem_id' => $request->request->get('ids')));
+        
+        return $modems;
+    }
+    
+    public function deleteModemAction()
+    {
+        $modems = $this->getModemAsArray();
+        $em = $this->getDoctrine()->getManager();
+        if (is_array($modems)) {
+            foreach ($modems as $modem) {
+                $em->remove($modem);
+                $em->flush();
+            }
+        } else if ($modems != "") {
+            $em->remove($modems);
+            $em->flush();
+        }
+        
+        $this->redirect($this->generateUrl('MManagerMControlBundle_modem_showAll'));
     }
 }

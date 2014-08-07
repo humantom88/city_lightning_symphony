@@ -6,33 +6,23 @@
     <link href="{{ asset('bundles/modemmanager/css/modemmanager.css') }}" type="text/css" rel="stylesheet" />
 {% endblock %}
 
-{% block title %}Modems list{% endblock %}
+{% block title %}Modem groups list{% endblock %}
 {% block body %}
     <table class="table">
         <thead>
             <tr>
                 <th>#</th>
-                <th>id</th>
-                <th>Serial Number</th>
-                <th>Phone Number</th>
-                <th>Location</th>
-                <th>Current Status</th>
-                <th>Last time updated</th>
-                <th>Tools</th>
+                <th>ID</th>
+                <th>Название группы</th>
             </tr>
         </thead>
         <tbody id="modems">
             <form>
-            {% for modem in modems %}
+            {% for modemgroup in modemgroups %}
                 <tr>
-                    <td><input type="checkbox" name="checkmodems" class="checker" id="{{ modem.getModemId }}"></td>
-                    <td>{{ modem.getModemId }}</td>
-                    <td>{{ modem.getModemSerial }}</td>
-                    <td>{{ modem.getModemPhone }}</td>
-                    <td>{{ modem.getModemLocation }}</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td style="width: 16px;"><input type="checkbox" name="checkmodems" class="checker" id="{{ modemgroup.getModemGroupId }}"></td>
+                    <td style="width: 32px;">{{ modemgroup.getModemGroupId() }}</td>
+                    <td>{{ modemgroup.getModemGroupName }}</td>
                 </tr>
             {% endfor%}
             </form>
@@ -43,11 +33,11 @@
 {% block sidebar %}
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h3 class="panel-title">Main</h3>
+            <h3 class="panel-title">Администрирование</h3>
         </div>
         <div class="panel-body">
-            <div class="btn btn-default" id="addnewmodem" data-toggle="modal" data-target="#myModal">Добавить модем</div>
-            <button class="btn btn-default" id="deletemodem" action="{{ path('MManagerMControlBundle_modem_deletemodem') }}">Удалить выделенные модемы</button>
+            <div class="btn btn-default" id="addnewmodem" data-toggle="modal" data-target="#myModal">Добавить группу модемов</div>
+            <div class="btn btn-default" id="deletemodem">Удалить выделенные</div>
         </div>
     </div>
     
@@ -69,27 +59,31 @@
         </div>
     </div>
             
+    <!-- Button trigger modal -->
+    
+
     <!-- Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title" id="myModalLabel">Форма добавления модема</h4>
+                    <h4 class="modal-title" id="myModalLabel">Название модали</h4>
                 </div>
                 <div class="modal-body">
-                    <form action="{{ path('MManagerMControlBundle_modem_showAll') }}" method="post" {{ form_enctype(form) }} class="mmanager">
+                    <form action="{{ path('MManagerMControlBundle_modemformadd') }}" method="post" {{ form_enctype(form) }} class="mmanager">
                         {{ form_errors(form) }}
                         {{ form_row(form.modem_location) }}
                         {{ form_row(form.modem_phone) }}
                         {{ form_row(form.modem_serial) }}
                         {{ form_rest(form) }}
-
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
-                            <button type="submit" class="btn btn-primary">Сохранить изменения</button>
-                        </div>
-                    </form>
+                        <input type="submit" value="Add new modem">
+                    </form>-->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+                    <button type="button" class="btn btn-primary">Сохранить изменения</button>
+                </div>
             </div>
         </div>
     </div>
