@@ -20,14 +20,14 @@ MManagerMControlBundle_modemgroup_show:
     path:     /modemgroupslist/{id}
     defaults: { _controller: MManagerMControlBundle:ModemGroup:show }
     requirements:
-        _method: GET
+        _method: GET|POST
         id: \d+
         
 MManagerMControlBundle_modemgroup_showAll:
     path:     /modemgroupslist/
     defaults: { _controller: MManagerMControlBundle:ModemGroup:showAll }
     requirements:
-            _method: GET
+            _method: GET|POST
 
 MManagerMControlBundle_main:
     path:     /
@@ -53,4 +53,9 @@ MManagerMControlBundle_modem_deletemodem:
     defaults: { _controller: MManagerMControlBundle:Modem:deleteModem }
     requirements:
             _method: GET|POST
-    
+
+MManagerMControlBundle_modemgroup_deletemodemgroup:
+    path:   /deletemodemgroup/
+    defaults: { _controller: MManagerMControlBundle:ModemGroup:deleteModemGroup }
+    requirements:
+            _method: GET|POST

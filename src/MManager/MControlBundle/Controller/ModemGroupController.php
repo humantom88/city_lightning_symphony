@@ -4,6 +4,10 @@
 namespace MManager\MControlBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use MManager\MControlBundle\Classes\Gammu;
+use MManager\MControlBundle\Entity\ModemGroup;
+use MManager\MControlBundle\Entity\ModemGroupEnquiry;
+use MManager\MControlBundle\Form\ModemGroupEnquiryType;
 /**
  * Blog controller.
  */
@@ -12,7 +16,7 @@ class ModemGroupController extends Controller
     /**
      * Show a blog entry
      */
-    
+
     public function showAction($id)
     {
         $em = $this->getDoctrine()->getManager();
@@ -24,12 +28,33 @@ class ModemGroupController extends Controller
         }
 
         return $this->render('MManagerMControlBundle:ModemGroup:show.html.twig', array(
-            'modemgroup'      => $modemgroup
+            'modemgroup'      => $modemgroup,
+            'id'              => $id
         ));
     }
     
     public function showAllAction()
     {
+        $enquiry = new ModemGroupEnquiry();
+        $form = $this->createForm(new ModemGroupEnquiryType(), $enquiry);
+        $request = $this->getRequest();
+
+        if ($request->getMethod() == 'POST') {
+            $form->bind($request);
+
+            if ($form->isValid()) {
+                $em = $this->getDoctrine()->getEntityManager();
+
+                $newmodemgroup= new ModemGroup();
+                $data = $form->getData();
+                $newmodemgroup->setModemGroupName($data->getModemGroupName());
+
+                $em->persist($newmodemgroup);
+                $em->flush();
+                
+                return $this->redirect($this->generateUrl('MManagerMControlBundle_modemgroup_showAll'));
+            }
+        }
         $em = $this->getDoctrine()->getManager();
         
         $modemgroups = $em->getRepository('MManagerMControlBundle:ModemGroup')->findAll();
@@ -40,34 +65,9 @@ class ModemGroupController extends Controller
         
         return $this->render('MManagerMControlBundle:ModemGroup:showall.html.twig', array(
             'modemgroups' => $modemgroups,
-        ));
+            'form' => $form->createView(),
+        ));        
     }
-    
-//    public function createAction()
-//    {
-//        $entity = new Modem();
-//        $request = $this->getRequest();
-//        $form = $this->createForm(new EntityType(), $entity);
-//        $form->bindRequest($request);
-//
-//        if ($form->isValid()) {
-//            $em = $this->getDoctrine()->getManager();
-//
-//            // Нужно указать родительский объект
-//            foreach ($entity->getNewsLinks() as $link)
-//            {
-//                $link->setNews($entity);
-//            }
-//            $em->persist($entity);
-//            $em->flush();
-//
-//            return $this->redirect($this->generateUrl('news_show', array('id' => $entity->getId())));
-//        }
-//
-//        return array(
-//           'entity' => $entity,
-//           'form' => $form->createView());
-//    }
     
     public function sendSMSAction()
     {
@@ -87,5 +87,23 @@ class ModemGroupController extends Controller
             file_put_contents('c:/log/log.txt', date('Y-m-d-h-m-s') . ' Message ' . '"5492 out3 pulse2"' . ' was sent to '. $m['modem_phone'] . '.' . chr(13) , FILE_APPEND);
         }
         return $this->showAllAction();
+    }
+    
+    public function deleteModemGroupAction()
+    {
+        $request = $this->getRequest();
+        $em = $this->getDoctrine()->getManager();
+        $modemgroups = $em->getRepository('MManagerMControlBundle:ModemGroup')->findBy(array ('modemgroup_id' => $request->request->get('ids')));
+
+        if (is_array($modemgroups)) {
+            foreach ($modemgroups as $modemgroup) {
+                $em->remove($modemgroup);
+                $em->flush();
+            }
+        } else if ($modemgroups != "") {
+            $em->remove($modemgroups);
+            $em->flush();
+        }
+        return $this->redirect($this->generateUrl('MManagerMControlBundle_modemgroup_showAll'));
     }
 }

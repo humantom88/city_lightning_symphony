@@ -126,4 +126,27 @@ class Modem
         ];
         return $arr;
     }
+
+    /**
+     * Set modem_group_id
+     *
+     * @param \MManager\MControlBundle\Entity\ModemGroup $modemGroupId
+     * @return Modem
+     */
+    public function setModemGroupId(\MManager\MControlBundle\Entity\ModemGroup $modemGroupId = null)
+    {
+        $this->modem_group_id = $modemGroupId;
+
+        return $this;
+    }
+
+    /**
+     * Get modem_group_id
+     *
+     * @return \MManager\MControlBundle\Entity\ModemGroup 
+     */
+    public function getModemGroupId()
+    {
+        return $this->modem_group_id;
+    }
 }

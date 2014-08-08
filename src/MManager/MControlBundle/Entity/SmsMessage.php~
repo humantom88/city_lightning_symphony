@@ -1,0 +1,41 @@
+<?php
+// src/Blogger/BlogBundle/Entity/Blog.php
+
+namespace MManager\MControlBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="smsmessages")
+ */
+class SmsMessage
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $sms_id;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Modem", inversedBy="smsmessage")
+     * @ORM\JoinColumn(name="modem_id", referencedColumnName="modem_id")
+     */
+    protected $modem_id;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $sms_text;
+
+    /**
+     * @ORM\Column(type="string", length=20)
+     */
+    protected $sms_from;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    protected $sms_sentdate;
+}

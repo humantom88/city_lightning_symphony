@@ -8,56 +8,22 @@ use Symfony\Component\Validator\Constraints\Email;
 use Symfony\Component\Validator\Constraints\MinLength;
 use Symfony\Component\Validator\Constraints\MaxLength;
 
-class ModemEnquiry {
-    protected $modemLocation;
-    protected $modemSerial;
-    protected $modemPhone;
-    protected $modemGroup;
+class ModemGroupEnquiry {
+    protected $modemGroupName;
             
-    public function getModemId()
+    public function getModemGroupName()
     {
-        return $this->modemId;
+        return $this->modemGroupName;
     }
 
-    public function setModemId($modemId)
+    public function setModemGroupName($modemGroupName)
     {
-        $this->modemId = $modemId;
+        $this->modemGroupName = $modemGroupName;
     }
 
-    public function getModemLocation()
-    {
-        return $this->modemLocation;
-    }
-
-    public function setModemLocation($modemLocation)
-    {
-        $this->modemLocation = $modemLocation;
-    }
-
-    public function getModemSerial()
-    {
-        return $this->modemSerial;
-    }
-
-    public function setModemSerial($modemSerial)
-    {
-        $this->modemSerial = $modemSerial;
-    }
-
-    public function getModemPhone()
-    {
-        return $this->modemPhone;
-    }
-
-    public function setModemPhone($modemPhone)
-    {
-        $this->modemPhone = $modemPhone;
-    }
-    
     public static function loadValidatorMetadata(ClassMetadata $metadata)
     {
-        $metadata->addPropertyConstraint('modemPhone', new NotBlank());      
-        $metadata->addPropertyConstraint('modemLocation', new NotBlank());
+        $metadata->addPropertyConstraint('modemGroupName', new NotBlank());      
     }
 }
 

@@ -146,6 +146,6 @@ class ModemController extends Controller
             $em->flush();
         }
         
-        $this->redirect($this->generateUrl('MManagerMControlBundle_modem_showAll'));
+        return $this->redirect($this->generateUrl('MManagerMControlBundle_modem_showAll'));
     }
 }

@@ -3,18 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/symfony/src/MManager/MControlBundle/Resources/views/Page/modemformview.html.twig</file>
+            <file>file:/C:/xampp/htdocs/symfony/src/MManager/MControlBundle/Entity/Modem.php</file>
             <file>file:/C:/xampp/htdocs/symfony/src/MManager/MControlBundle/Entity/ModemGroupEnquiry.php</file>
-            <file>file:/C:/xampp/htdocs/symfony/web/bundles/modemmanager/js/MainForm/main.js</file>
-            <file>file:/C:/xampp/htdocs/symfony/src/MManager/MControlBundle/Controller/ModemGroupController.php</file>
-            <file>file:/C:/xampp/htdocs/symfony/src/MManager/MControlBundle/Resources/views/ModemGroup/showAll.html.twig</file>
-            <file>file:/C:/xampp/htdocs/symfony/web/bundles/modemmanager/css/modemmanager.css</file>
-            <file>file:/C:/xampp/htdocs/symfony/src/MManager/MControlBundle/Controller/PageController.php</file>
-            <file>file:/C:/xampp/htdocs/symfony/app/Resources/views/mmanager.base.html.twig</file>
-            <file>file:/C:/xampp/htdocs/symfony/src/MManager/MControlBundle/Entity/ModemEnquiry.php</file>
-            <file>file:/C:/xampp/htdocs/symfony/src/MManager/MControlBundle/Resources/config/routing.yml</file>
-            <file>file:/C:/xampp/htdocs/symfony/src/MManager/MControlBundle/Resources/views/Modem/showAll.html.twig</file>
-            <file>file:/C:/xampp/htdocs/symfony/src/MManager/MControlBundle/Controller/ModemController.php</file>
+            <file>file:/C:/xampp/htdocs/symfony/daemons/SmsDaemon/smsdaemon.ini</file>
+            <file>file:/C:/xampp/htdocs/symfony/src/MManager/MControlBundle/Entity/SmsMessageEnquiry.php</file>
+            <file>file:/C:/xampp/htdocs/symfony/config/gammu.ini</file>
+            <file>file:/C:/xampp/htdocs/symfony/daemons/SmsDaemon/SmsDaemon.php</file>
+            <file>file:/C:/xampp/htdocs/symfony/src/MManager/MControlBundle/Classes/Gammu.php</file>
+            <file>file:/C:/xampp/htdocs/symfony/src/MManager/MControlBundle/Entity/SmsMessage.php</file>
         </group>
     </open-files>
 </project-private>
