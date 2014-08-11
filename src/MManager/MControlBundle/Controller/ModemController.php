@@ -33,8 +33,12 @@ class ModemController extends Controller
     
     public function showAllAction()
     {
+        $em = $this->getDoctrine()->getManager();
+        $modems = $em->getRepository('MManagerMControlBundle:Modem')->findAll();
+        $modemgroups = $em->getRepository('MManagerMControlBundle:ModemGroup')->findAll();
+        
         $enquiry = new ModemEnquiry();
-        $form = $this->createForm(new ModemEnquiryType(), $enquiry);
+        $form = $this->createForm(new ModemEnquiryType($modemgroups), $enquiry);
         $request = $this->getRequest();
         
         if ($request->getMethod() == 'POST') {
@@ -51,32 +55,18 @@ class ModemController extends Controller
                 
                 $em->persist($newmodem);
                 $em->flush();
-                
-                //$message = \Swift_Message::newInstance()
-                //    ->setSubject('Contact enquiry from symblog')
-                //    ->setFrom('enquiries@symblog.co.uk')
-                //    ->setTo($this->container->getParameter('mmanager_mcontrol.emails.contact_email'))
-                //    ->setBody($this->renderView('MManagerMControlBundle:Page:contactEmail.txt.twig', array('enquiry' => $enquiry)));
-                //$this->get('mailer')->send($message);
 
-                //$this->get('session')->setFlash('mmanager-notice', 'Your contact enquiry was successfully sent. Thank you!');
-
-                // Redirect - This is important to prevent users re-posting
-                // the form if they refresh the page
                 return $this->redirect($this->generateUrl('MManagerMControlBundle_modem_showAll'));
             }
-        }
-        $em = $this->getDoctrine()->getManager();
-        
-        $modems = $em->getRepository('MManagerMControlBundle:Modem')->findAll();
-        
+        }        
         if (!$modems) {
             throw $this->createNotFoundException('There are no modem registered in Database.');
         }
         
         return $this->render('MManagerMControlBundle:Modem:showall.html.twig', array(
             'modems' => $modems,
-            'form' => $form->createView(),
+            'modemgroups' => $modemgroups,
+            'form' => $form->createView()
         ));        
     }
     
@@ -124,11 +114,12 @@ class ModemController extends Controller
         return $this->showAllAction();
     }
     
-    public function getModemAsArray() {
+    public function getModemAsArray() 
+    {
         $request = $this->getRequest();
         $em = $this->getDoctrine()->getManager();
         $modems = $em->getRepository('MManagerMControlBundle:Modem')->findBy(array ('modem_id' => $request->request->get('ids')));
-        
+
         return $modems;
     }
     

@@ -117,7 +117,8 @@ class Modem
         return $this->modem_phone;
     }
     
-    public function getModemAsArray() {
+    public function getModemAsArray() 
+    {
         $arr = [
             'modem_id' => $this->getModemId(), 
             'modem_phone' => $this->getModemPhone(), 

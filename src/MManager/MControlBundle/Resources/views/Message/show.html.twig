@@ -1,0 +1,15 @@
+{# src/Blogger/BlogBundle/Resouces/views/Blog/show.html.twig #}
+{% extends 'MManagerMControlBundle::layout.html.twig' %}
+
+{% block title %}{{ modem.getModemPhone }}{% endblock %}
+
+{% block body %}
+    <article class="modem">
+        <header>
+            <h2>{{ modem.getModemPhone }}</h2>
+        </header>
+        <div>
+            <p>{{ modem.getModemSerial }}</p>
+        </div>
+    </article>
+{% endblock %}

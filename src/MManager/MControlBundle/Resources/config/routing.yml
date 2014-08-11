@@ -59,3 +59,16 @@ MManagerMControlBundle_modemgroup_deletemodemgroup:
     defaults: { _controller: MManagerMControlBundle:ModemGroup:deleteModemGroup }
     requirements:
             _method: GET|POST
+            
+MManagerMControlBundle_message_show:
+    pattern:  /{id}
+    defaults: { _controller: MManagerMControlBundle:SmsMessage:show }
+    requirements:
+        _method:  GET
+        id: \d+
+        
+MManagerMControlBundle_message_showAll:
+    pattern:  /messagelist/
+    defaults: { _controller: MManagerMControlBundle:SmsMessage:showAll }
+    requirements:
+        _method:  GET|POST

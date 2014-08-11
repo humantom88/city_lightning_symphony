@@ -80,4 +80,3 @@ $smsDaemon = new SMSDaemon('smsdaemon.ini');
 $message_files = $smsDaemon->readInbox();
 
 $smsDaemon->parseSMSFilename($message_files[3]);
-

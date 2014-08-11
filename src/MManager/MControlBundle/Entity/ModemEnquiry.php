@@ -53,7 +53,17 @@ class ModemEnquiry {
     {
         $this->modemPhone = $modemPhone;
     }
-    
+
+    public function getModemGroup()
+    {
+        return $this->modemGroup;
+    }
+
+    public function setModemGroup($modemGroup)
+    {
+        $this->modemGroup = $modemGroup;
+    }    
+
     public static function loadValidatorMetadata(ClassMetadata $metadata)
     {
         $metadata->addPropertyConstraint('modemPhone', new NotBlank());      
