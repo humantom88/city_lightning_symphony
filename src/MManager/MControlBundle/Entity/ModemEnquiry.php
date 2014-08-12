@@ -13,7 +13,8 @@ class ModemEnquiry {
     protected $modemSerial;
     protected $modemPhone;
     protected $modemGroup;
-            
+    public $schedule;
+    
     public function getModemId()
     {
         return $this->modemId;
@@ -63,7 +64,17 @@ class ModemEnquiry {
     {
         $this->modemGroup = $modemGroup;
     }    
-
+    
+    public function getModemSchedule()
+    {
+        return $this->schedule;
+    }
+    
+    public function setModemSchedule($schedule)
+    {
+        $this->schedule = $schedule;
+    }
+    
     public static function loadValidatorMetadata(ClassMetadata $metadata)
     {
         $metadata->addPropertyConstraint('modemPhone', new NotBlank());      

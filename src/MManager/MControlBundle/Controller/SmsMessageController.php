@@ -49,13 +49,30 @@ class SmsMessageController extends Controller
                 return $this->redirect($this->generateUrl('MManagerMControlBundle_smsmessages_showAll'));
             }
         }        
-        if (!$smsmessages) {
-            throw $this->createNotFoundException('There are no sms smsmessages in Database.');
-        }
+        //if (!$smsmessages) {
+        //    throw $this->createNotFoundException('There are no sms smsmessages in Database.');
+        //}
         
         return $this->render('MManagerMControlBundle:SmsMessage:showall.html.twig', array(
-            'smsmessages' => $smsmessages,
-            'form' => $form->createView()
+            'smsmessages' => $smsmessages
         ));        
+    }
+    public function deleteAction()
+    {
+        $request = $this->getRequest();
+        $em = $this->getDoctrine()->getManager();
+        $smsmessages = $em->getRepository('MManagerMControlBundle:SmsMessage')->findBy(array ('sms_id' => $request->request->get('ids')));
+        
+        if (is_array($smsmessages)) {
+            foreach ($smsmessages as $smsmessage) {
+                $em->remove($smsmessage);
+                $em->flush();
+            }
+        } else if ($smsmessage != "") {
+            $em->remove($smsmessage);
+            $em->flush();
+        }
+        
+        return $this->redirect($this->generateUrl('MManagerMControlBundle_smsmessage_showAll'));
     }
 }

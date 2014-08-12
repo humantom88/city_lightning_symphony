@@ -1,0 +1,35 @@
+<?php
+namespace MManager\MControlBundle\Entity;
+
+use MManager\MControlBundle\Controller\ModemController;
+use MManager\MControlBundle\Entity\Modem;
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="schedules")
+ */
+class Schedule
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $schedule_id;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Timeblock", mappedBy="schedule_id")
+     */
+    protected $timeblocks;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $schedule_name;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Modem", mappedBy="modem_id")
+     */
+    protected $modem_id;
+}

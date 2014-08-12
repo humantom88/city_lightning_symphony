@@ -30,7 +30,7 @@
                     <td>{{ modem.getModemSerial }}</td>
                     <td>{{ modem.getModemPhone }}</td>
                     <td>{{ modem.getModemLocation }}</td>
-                    <td></td>
+                    <td>{{ modem.getModemGroupId }}</td>
                     <td></td>
                     <td></td>
                 </tr>
@@ -46,7 +46,7 @@
             <h3 class="panel-title">Main</h3>
         </div>
         <div class="panel-body">
-            <div class="btn btn-default" id="addnewmodem" data-toggle="modal" data-target="#myModal">Добавить модем</div>
+            <div class="btn btn-default" id="addnewmodem" style="margin-bottom: 15px;" data-toggle="modal" data-target="#myModal">Добавить модем</div>
             <button class="btn btn-default" id="deletemodem" action="{{ path('MManagerMControlBundle_modem_deletemodem') }}">Удалить выделенные модемы</button>
         </div>
     </div>
@@ -56,19 +56,12 @@
             <h3 class="panel-title">Group</h3>
         </div>
         <div class="panel-body">
-            <div class="btn btn-default primary">Switch Group</div>
             <button class="btn btn-default" id="sendsms" action="{{ path('MManagerMControlBundle_modem_sendsms') }}">
-                Send Group SMS
+                Отправка SMS
             </button>
         </div>
     </div>
-    
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h3 class="panel-title">Group</h3>
-        </div>
-    </div>
-            
+
     <!-- Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">

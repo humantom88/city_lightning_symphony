@@ -59,9 +59,9 @@ class ModemGroupController extends Controller
         
         $modemgroups = $em->getRepository('MManagerMControlBundle:ModemGroup')->findAll();
         
-        if (!$modemgroups) {
-            throw $this->createNotFoundException('There are no modem registered in Database.');
-        }
+        //if (!$modemgroups) {
+        //    throw $this->createNotFoundException('There are no modem registered in Database.');
+        //}
         
         return $this->render('MManagerMControlBundle:ModemGroup:showall.html.twig', array(
             'modemgroups' => $modemgroups,

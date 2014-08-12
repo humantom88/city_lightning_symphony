@@ -9,26 +9,28 @@
 {% block title %}Modem groups list{% endblock %}
 
 {% block navigation %}
-            <div class="navbar navbar-default">
-                <div class="container">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <a class="navbar-brand" href="#">MManager</a>
-                    </div>
-                    <div class="navbar-collapse collapse">
-                        <ul class="nav navbar-nav">
-                            <li><a href="/modemlist/">Modem List</a></li>
-                            <li class="active"><a href="/modemgroupslist/">Modem Groups List</a></li>
-                        </ul>
-                    </div><!--/.nav-collapse -->
-                </div>
-              </div>
-        {% endblock %}
+    <div class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">MManager</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="/modemlist/">Modem List</a></li>
+                    <li class="active"><a href="/modemgroupslist/">Modem Groups List</a></li>
+                    <li><a href="/messagelist/">Messages List</a></li>
+                    <li><a href="/schedulelist/">Scheduler</a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+      </div>
+{% endblock %}
 
 {% block body %}
     <table class="table">
@@ -59,7 +61,7 @@
             <h3 class="panel-title">Администрирование</h3>
         </div>
         <div class="panel-body">
-            <div class="btn btn-default" id="addnewmodem" data-toggle="modal" data-target="#myModal">Добавить группу модемов</div>
+            <div class="btn btn-default" id="addnewmodem" data-toggle="modal" data-target="#myModal" style="margin-bottom: 15px;">Добавить группу модемов</div>
             <button class="btn btn-default" id="deletemodem" action="{{ path('MManagerMControlBundle_modemgroup_deletemodemgroup') }}">Удалить выделенные</button>
         </div>
     </div>
@@ -69,16 +71,9 @@
             <h3 class="panel-title">Group</h3>
         </div>
         <div class="panel-body">
-            <div class="btn btn-default primary">Switch Group</div>
             <button class="btn btn-default" id="sendsms" action="{{ path('MManagerMControlBundle_modem_sendsms') }}">
-                Send Group SMS
+                Отправка SMS
             </button>
-        </div>
-    </div>
-    
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h3 class="panel-title">Group</h3>
         </div>
     </div>
             

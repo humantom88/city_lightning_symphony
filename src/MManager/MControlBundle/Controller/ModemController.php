@@ -36,9 +36,10 @@ class ModemController extends Controller
         $em = $this->getDoctrine()->getManager();
         $modems = $em->getRepository('MManagerMControlBundle:Modem')->findAll();
         $modemgroups = $em->getRepository('MManagerMControlBundle:ModemGroup')->findAll();
+        $schedules = $em->getRepository('MManagerMControlBundle:Schedule')->findAll();
         
         $enquiry = new ModemEnquiry();
-        $form = $this->createForm(new ModemEnquiryType($modemgroups), $enquiry);
+        $form = $this->createForm(new ModemEnquiryType($modemgroups, $schedules), $enquiry);
         $request = $this->getRequest();
         
         if ($request->getMethod() == 'POST') {
@@ -59,43 +60,17 @@ class ModemController extends Controller
                 return $this->redirect($this->generateUrl('MManagerMControlBundle_modem_showAll'));
             }
         }        
-        if (!$modems) {
-            throw $this->createNotFoundException('There are no modem registered in Database.');
-        }
-        
+        //if (!$modems) {
+        //    throw $this->createNotFoundException('There are no modem registered in Database.');
+        //}
         return $this->render('MManagerMControlBundle:Modem:showall.html.twig', array(
             'modems' => $modems,
             'modemgroups' => $modemgroups,
+            'schedules' => $schedules,
             'form' => $form->createView()
         ));        
     }
-    
-    public function createAction()
-    {
-        $entity = new Modem();
-        $request = $this->getRequest();
-        $form = $this->createForm(new EntityType(), $entity);
-        $form->bindRequest($request);
 
-        if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-
-            // Нужно указать родительский объект
-            foreach ($entity->getNewsLinks() as $link)
-            {
-                $link->setNews($entity);
-            }
-            $em->persist($entity);
-            $em->flush();
-
-            return $this->redirect($this->generateUrl('news_show', array('id' => $entity->getId())));
-        }
-
-        return array(
-           'entity' => $entity,
-           'form' => $form->createView());
-    }
-    
     public function sendSMSAction()
     {
         $gammu = new Gammu([
@@ -107,20 +82,16 @@ class ModemController extends Controller
         
         $modems = $this->getModemAsArray();
         
-        foreach ($modems as $modem) {
-            $gammu->sendSMS($modem['modem_phone'], '5492 out3 pulse2');
-            file_put_contents('c:/log/log.txt', date('Y-m-d-h-m-s') . ' Message ' . '"5492 out3 pulse2"' . ' was sent to '. $modem['modem_phone'] . '.' . chr(13) , FILE_APPEND);
+        if (!$modems['modem_phone']) {
+            foreach ($modems as $modem) {
+                $gammu->sendSMS($modem['modem_phone'], '5492 out3 pulse2');
+                file_put_contents('c:/log/log.txt', date('Y-m-d-h-m-s') . ' Message ' . '"5492 out3 pulse2"' . ' was sent to '. $modem['modem_phone'] . '.' . chr(13) , FILE_APPEND);
+            }
+        } else {
+            $gammu->sendSMS($modems['modem_phone'], '5492 out3 pulse2');
+            file_put_contents('c:/log/log.txt', date('Y-m-d-h-m-s') . ' Message ' . '"5492 out3 pulse2"' . ' was sent to '. $modems['modem_phone'] . '.' . chr(13) , FILE_APPEND);
         }
         return $this->showAllAction();
-    }
-    
-    public function getModemAsArray() 
-    {
-        $request = $this->getRequest();
-        $em = $this->getDoctrine()->getManager();
-        $modems = $em->getRepository('MManagerMControlBundle:Modem')->findBy(array ('modem_id' => $request->request->get('ids')));
-
-        return $modems;
     }
     
     public function deleteModemAction()
@@ -138,5 +109,50 @@ class ModemController extends Controller
         }
         
         return $this->redirect($this->generateUrl('MManagerMControlBundle_modem_showAll'));
+    }
+    
+    public function getModemAsObject() 
+    {
+        $request = $this->getRequest();
+        $em = $this->getDoctrine()->getManager();
+        $modems = $em->getRepository('MManagerMControlBundle:Modem')->findBy(array ('modem_id' => $request->request->get('ids')));
+
+        return $modems;
+    }
+    
+    public function getModemAsArray() 
+    {
+        $request = $this->getRequest();
+        $em = $this->getDoctrine()->getManager();
+        $modems = $em->getRepository('MManagerMControlBundle:Modem')->findBy(array ('modem_id' => $request->request->get('ids')));
+        if (is_array($modems)) {
+            foreach ($modems as $modem) {
+                if (is_object($modem)) {
+                    $result = [
+                        'modem_id' => $modem->getModemId(),
+                        'modem_location' => $modem->getModemLocation(),
+                        'modem_phone' => $modem->getModemPhone()
+                    ];
+                } else {
+                    $result = false;
+                }
+            }
+        } else {
+            if (is_object($modem)) {
+                $result = [
+                    'modem_id' => $modem->getModemId(),
+                    'modem_location' => $modem->getModemLocation(),
+                    'modem_phone' => $modem->getModemPhone()
+                ];
+            } else {
+                $result = false;
+            }
+        }
+        return $result;
+    }
+    
+    public function getModemGroupById ($modemGroupId)
+    {
+        return $this->getDoctrine()->getRepository('MManagerMControlBundle:ModemGroup')->find($modemGroupId);
     }
 }

@@ -1,0 +1,89 @@
+
+{% extends 'MManagerMControlBundle::layout.html.twig' %}
+
+{% block stylesheets %} 
+    {{ parent() }} 
+    <link href="{{ asset('bundles/modemmanager/css/modemmanager.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+{% block title %}Schedules list{% endblock %}
+
+{% block navigation %}
+    <div class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">MManager</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="/modemlist/">Modem List</a></li>
+                    <li><a href="/modemgroupslist/">Modem Groups List</a></li>
+                    <li><a href="/messagelist/">Messages List</a></li>
+                    <li class="active"><a href="/schedulelist/">Scheduler</a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+      </div>
+{% endblock %}
+
+{% block body %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>id</th>
+                <th>Schedule Name</th>
+            </tr>
+        </thead>
+        <tbody id="modems">
+            <form>
+            {% for schedule in schedules %}
+                <tr class="activeRowSchedule" id="{{ schedule.getScheduleId}}" action="/schedulelist/{{ schedule.getScheduleId }}" onselectstart="return false">
+                    <td><input type="checkbox" name="checkmodems" class="checker" id="{{ schedule.getScheduleId }}"></td>
+                    <td>{{ schedule.getScheduleId }}</td>
+                    <td>{{ schedule.getScheduleName }}</td>
+                </tr>
+            {% endfor%}
+            </form>
+        </tbody>
+    </table>
+{% endblock %}
+
+{% block sidebar %}
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Main</h3>
+        </div>
+        <div class="panel-body">
+            <div class="btn btn-default" id="addnewmodem" style="margin-bottom: 15px;" data-toggle="modal" data-target="#myModal">Добавить расписание</div>
+            <button class="btn btn-default" id="deletemodem" action="{{ path('MManagerMControlBundle_modem_deletemodem') }}">Удалить выделенные</button>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Форма добавления расписания</h4>
+                </div>
+                <div class="modal-body">
+                    <form action="{{ path('MManagerMControlBundle_schedule_showAll') }}" method="post" {{ form_enctype(form) }} class="mmanager">
+                        {{ form_errors(form) }}
+                        {{ form_row(form.schedule_name) }}
+                        {{ form_rest(form) }}
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+                            <button type="submit" class="btn btn-primary">Сохранить изменения</button>
+                        </div>
+                    </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

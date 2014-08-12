@@ -1,0 +1,43 @@
+<?php
+// src/Blogger/BlogBundle/Entity/Blog.php
+
+namespace MManager\MControlBundle\Entity;
+
+use MManager\MControlBundle\Controller\ModemController;
+use MManager\MControlBundle\Entity\Schedule;
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="timeblocks")
+ */
+class Timeblock
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $timeblock_id;
+    
+    /**
+     * @ORM\Column(type="date")
+     */    
+    protected $timeblock_date;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    protected $timeblock_starttime;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    protected $timeblock_endtime;
+   
+    /**
+     * @ORM\ManyToOne(targetEntity="Schedule", inversedBy="timeblocks")
+     * @ORM\JoinColumn(name="schedule_id", referencedColumnName="schedule_id")
+     */
+    protected $schedule_id;
+}

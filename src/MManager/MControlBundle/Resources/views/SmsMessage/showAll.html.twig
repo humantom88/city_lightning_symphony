@@ -1,0 +1,71 @@
+
+{% extends 'MManagerMControlBundle::layout.html.twig' %}
+
+{% block stylesheets %} 
+    {{ parent() }} 
+    <link href="{{ asset('bundles/modemmanager/css/modemmanager.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+{% block title %}Sms Messages list{% endblock %}
+
+{% block navigation %}
+    <div class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">MManager</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="/modemlist/">Modem List</a></li>
+                    <li><a href="/modemgroupslist/">Modem Groups List</a></li>
+                    <li><a href="/messagelist/">Messages List</a></li>
+                    <li class="active"><a href="/schedulelist/">Scheduler</a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+      </div>
+{% endblock %}
+
+{% block body %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>id</th>
+                <th>Message</th>
+                <th>From</th>
+                <th>Received Date</th>
+            </tr>
+        </thead>
+        <tbody id="modems">
+            <form>
+            {% for sms in smsmessages %}
+                <tr class="activeRow" id="{{ sms.getSmsId }}" action="/messagelist/" onselectstart="return false">
+                    <td><input type="checkbox" name="checkmodems" class="checker" id="{{ sms.getSmsId }}"></td>
+                    <td>{{ sms.getSmsId }}</td>
+                    <td>{{ sms.getSmsText }}</td>
+                    <td>{{ sms.getSmsFrom }}</td>
+                    <td>{{ sms.getSmsSentdate|date('Y-m-d') }}</td>
+                </tr>
+            {% endfor%}
+            </form>
+        </tbody>
+    </table>
+{% endblock %}
+
+{% block sidebar %}
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">SMS</h3>
+        </div>
+        <div class="panel-body">
+            <button class="btn btn-default" id="deletemodem" action="{{ path('MManagerMControlBundle_smsmessage_delete') }}">Удалить выделенные</button>
+        </div>
+    </div>
+{% endblock %}

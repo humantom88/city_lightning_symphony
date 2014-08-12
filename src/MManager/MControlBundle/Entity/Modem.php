@@ -3,6 +3,9 @@
 
 namespace MManager\MControlBundle\Entity;
 
+use MManager\MControlBundle\Controller\ModemController;
+use MManager\MControlBundle\Entity\ModemGroup;
+use MManager\MControlBundle\Entity\Schedule;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -39,6 +42,12 @@ class Modem
      */
     protected $modem_phone;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Schedule", inversedBy="modems")
+     * @ORM\JoinColumn(name="schedule_id", referencedColumnName="schedule_id")
+     */
+    protected $schedule_id;
+    
     /**
      * Get modem_id
      *
@@ -149,5 +158,28 @@ class Modem
     public function getModemGroupId()
     {
         return $this->modem_group_id;
+    }
+
+    /**
+     * Set schedule_id
+     *
+     * @param \MManager\MControlBundle\Entity\Schedule $scheduleId
+     * @return Modem
+     */
+    public function setScheduleId(\MManager\MControlBundle\Entity\Schedule $scheduleId = null)
+    {
+        $this->schedule_id = $scheduleId;
+
+        return $this;
+    }
+
+    /**
+     * Get schedule_id
+     *
+     * @return \MManager\MControlBundle\Entity\Schedule 
+     */
+    public function getScheduleId()
+    {
+        return $this->schedule_id;
     }
 }

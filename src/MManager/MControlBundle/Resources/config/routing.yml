@@ -67,8 +67,35 @@ MManagerMControlBundle_message_show:
         _method:  GET
         id: \d+
         
-MManagerMControlBundle_message_showAll:
+MManagerMControlBundle_smsmessage_showAll:
     pattern:  /messagelist/
     defaults: { _controller: MManagerMControlBundle:SmsMessage:showAll }
+    requirements:
+        _method:  GET|POST
+
+MManagerMControlBundle_smsmessage_delete:
+    pattern:  /messagelist/delete/
+    defaults: { _controller: MManagerMControlBundle:SmsMessage:delete }
+    requirements:
+        _method:  GET|POST
+        
+
+        
+MManagerMControlBundle_schedule_show:
+    pattern:  /schedulelist/{id}
+    defaults: { _controller: MManagerMControlBundle:Schedule:show }
+    requirements:
+        _method: GET
+        id: \d+        
+        
+MManagerMControlBundle_schedule_showAll:
+    pattern:  /schedulelist/
+    defaults: { _controller: MManagerMControlBundle:Schedule:showAll }
+    requirements:
+        _method:  GET|POST
+
+MManagerMControlBundle_schedule_delete:
+    pattern:  /schedulelist/delete/
+    defaults: { _controller: MManagerMControlBundle:Schedule:delete }
     requirements:
         _method:  GET|POST
