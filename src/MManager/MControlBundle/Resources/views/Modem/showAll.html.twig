@@ -12,13 +12,13 @@
         <thead>
             <tr>
                 <th>#</th>
-                <th>id</th>
-                <th>Serial Number</th>
-                <th>Phone Number</th>
-                <th>Location</th>
-                <th>Current Status</th>
-                <th>Last time updated</th>
-                <th>Modem Group</th>
+                <th>ID</th>
+                <th>Серийный номер</th>
+                <th>Номер телефона</th>
+                <th>Местонахождение</th>
+                <th>Статус</th>
+                <th>Последнее обновление</th>
+                <th>Группа</th>
             </tr>
         </thead>
         <tbody id="modems">
@@ -43,21 +43,21 @@
 {% block sidebar %}
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h3 class="panel-title">Main</h3>
+            <h3 class="panel-title">Администрирование</h3>
         </div>
         <div class="panel-body">
             <div class="btn btn-default" id="addnewmodem" style="margin-bottom: 15px;" data-toggle="modal" data-target="#myModal">Добавить модем</div>
-            <button class="btn btn-default" id="deletemodem" action="{{ path('MManagerMControlBundle_modem_deletemodem') }}">Удалить выделенные модемы</button>
+            <button class="btn btn-default" id="deletemodem" action="{{ path('MManagerMControlBundle_modem_deletemodem') }}">Удалить выделенные</button>
         </div>
     </div>
     
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h3 class="panel-title">Group</h3>
+            <h3 class="panel-title">Инструменты</h3>
         </div>
         <div class="panel-body">
             <button class="btn btn-default" id="sendsms" action="{{ path('MManagerMControlBundle_modem_sendsms') }}">
-                Отправка SMS
+                Отправить SMS
             </button>
         </div>
     </div>

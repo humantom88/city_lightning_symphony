@@ -8,21 +8,19 @@ use Symfony\Component\Form\FormBuilderInterface;
 class TimeblockEnquiryType extends AbstractType
 {
     private $schedules ;
-    public function __construct($schedules = "")
+    public function __construct($schedule = "")
     {
-        if ($schedules != "") {
-            foreach ($schedules as $schedule) {
-                array_push($this->schedules,array ($schedule->getScheduleId() => $schedule->getScheduleName()));
-            }
+        if ($schedule != "") {
+            $this->schedules = $schedule;
         }
     }
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('timeblock_date', 'date');
-        $builder->add('timeblock_starttime', 'datetime');
-        $builder->add('timeblock_endtime', 'datetime');
-        $builder->add('schedule', 'choice', array('choices' => $this->schedules));
+        $builder->add('timeblock_starttime', 'time');
+        $builder->add('timeblock_endtime', 'time');
+        $builder->add('schedule', 'choice', array('choices' => array ($this->schedules->getScheduleId() => $this->schedules->getScheduleName())));
     }
 
     public function getName()

@@ -1,0 +1,62 @@
+{# src/Blogger/BlogBundle/Resouces/views/Blog/show.html.twig #}
+{% extends 'MManagerMControlBundle::layout.html.twig' %}
+
+{% block title %}{{ schedule.getScheduleName }}{% endblock %}
+
+{% block body %}
+    <article class="schedule">
+        <header>
+            <h2>{{ schedule.getScheduleName }}</h2>
+        </header>
+    </article>
+            
+    <table class="table">
+        <thead>
+            <tr>
+                <th style="text-align: center;">#</th>
+                <th>ID</th>
+                <th>День</th>
+                <th>Время включения</th>
+                <th>Время выключения</th>
+            </tr>
+        </thead>
+        <tbody id="timeblocks">
+            {% for timeblock in timeblocks %}
+                <tr class="activeTimeblockRow" id="{{ timeblock.getTimeblockId }}" onselectstart="return false">
+                    <td style="width: 16px;"><input type="checkbox" name="checkmodems" class="checker" id="{{ timeblock.getTimeblockId }}"></td>
+                    <td style="width: 16px;">{{ timeblock.getTimeblockId }}</td>
+                    <td style="width: 200px;">{{ timeblock.getTimeblockDate()|date('Y-m-d') }}</td>
+                    <td style="width: auto;">{{ timeblock.getTimeblockStartTime()|date('h-m-s') }}</td>
+                    <td style="width: auto;">{{ timeblock.getTimeblockEndTime()|date('h-m-s') }}</td>
+                </tr>
+            {% endfor%}
+
+            <form action="{{ path('MManagerMControlBundle_schedule_show' , {'id': schedule.getScheduleId}) }}" method="post" {{ form_enctype(form) }} class="timeblock">
+                <tr action="/timeblockslist/" onselectstart="return false">
+                    {{ form_errors(form) }}
+                    <td>
+                        <div class="modal-footer" style="margin-top: 0px; padding: 0px; text-align:center; border: none;">
+                            <button type="submit" id="addstring" class="btn btn-primary">+</button>
+                        </div>
+                    </td>
+                    <td>...</td>
+                    <td>{{ form_row(form.timeblock_date) }}</td>
+                    <td>{{ form_row(form.timeblock_starttime) }}</td>
+                    <td>{{ form_row(form.timeblock_endtime) }}</td>
+                    <td style="display: none;">{{ form_rest(form) }}</td>
+                </tr>
+            </form>
+        </tbody>
+    </table>
+{% endblock %}
+
+{% block sidebar %}
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Main</h3>
+        </div>
+        <div class="panel-body">
+            <button class="btn btn-default" id="deletemodem" action="{{ path('MManagerMControlBundle_schedule_deletetimeblock') }}">Удалить выделенные</button>
+        </div>
+    </div>
+{% endblock %}

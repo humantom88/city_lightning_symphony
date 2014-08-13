@@ -18,14 +18,14 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">MManager</a>
+                <a class="navbar-brand" href="#">SUNO MManager</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="/modemlist/">Modem List</a></li>
-                    <li><a href="/modemgroupslist/">Modem Groups List</a></li>
-                    <li><a href="/messagelist/">Messages List</a></li>
-                    <li class="active"><a href="/schedulelist/">Scheduler</a></li>
+                    <li><a href="/modemlist/">Список модемов</a></li>
+                    <li><a href="/modemgroupslist/">Список групп</a></li>
+                    <li><a href="/messagelist/">Список сообщений</a></li>
+                    <li class="active"><a href="/schedulelist/">Расписания</a></li>
                 </ul>
             </div><!--/.nav-collapse -->
         </div>
@@ -45,8 +45,8 @@
             <form>
             {% for schedule in schedules %}
                 <tr class="activeRowSchedule" id="{{ schedule.getScheduleId}}" action="/schedulelist/{{ schedule.getScheduleId }}" onselectstart="return false">
-                    <td><input type="checkbox" name="checkmodems" class="checker" id="{{ schedule.getScheduleId }}"></td>
-                    <td>{{ schedule.getScheduleId }}</td>
+                    <td style="width: 16px;"><input type="checkbox" name="checkmodems" class="checker" id="{{ schedule.getScheduleId }}"></td>
+                    <td style="width: 50px;">{{ schedule.getScheduleId }}</td>
                     <td>{{ schedule.getScheduleName }}</td>
                 </tr>
             {% endfor%}
@@ -58,11 +58,11 @@
 {% block sidebar %}
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h3 class="panel-title">Main</h3>
+            <h3 class="panel-title">Администрирование</h3>
         </div>
         <div class="panel-body">
             <div class="btn btn-default" id="addnewmodem" style="margin-bottom: 15px;" data-toggle="modal" data-target="#myModal">Добавить расписание</div>
-            <button class="btn btn-default" id="deletemodem" action="{{ path('MManagerMControlBundle_modem_deletemodem') }}">Удалить выделенные</button>
+            <button class="btn btn-default" id="deletemodem" action="{{ path('MManagerMControlBundle_schedule_delete') }}">Удалить выделенные</button>
         </div>
     </div>
     <!-- Modal -->

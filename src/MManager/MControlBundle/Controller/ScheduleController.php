@@ -3,9 +3,9 @@
 namespace MManager\MControlBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use MManager\MControlBundle\Classes\Gammu;
 use MManager\MControlBundle\Entity\Schedule;
 use MManager\MControlBundle\Entity\ScheduleEnquiry;
+use MManager\MControlBundle\Entity\Timeblock;
 use MManager\MControlBundle\Entity\TimeblockEnquiry;
 use MManager\MControlBundle\Form\ScheduleEnquiryType;
 use MManager\MControlBundle\Form\TimeblockEnquiryType;
@@ -25,6 +25,23 @@ class ScheduleController extends Controller
         $timeblocks = $em->getRepository('MManagerMControlBundle:Timeblock')->findBy(['schedule_id' => $id]);
         $enquiry = new TimeblockEnquiry();
         $form = $this->createForm(new TimeblockEnquiryType($schedule), $enquiry);
+
+        $request = $this->getRequest();
+        
+        if ($request->getMethod() == 'POST') {
+            $form->bind($request);
+            
+            if ($form->isValid()) {
+                $newTimeblock = new Timeblock();
+                $data = $form->getData();
+                $newTimeblock->setTimeblockDate($data->getTimeblockDate());
+                $newTimeblock->setTimeblockStarttime($data->getTimeblockStarttime());
+                $newTimeblock->setTimeblockEndtime($data->getTimeblockEndtime());
+                $newTimeblock->setScheduleId($schedule = $em->getRepository('MManagerMControlBundle:Schedule')->find($data->getScheduleId()));
+                $em->persist($newTimeblock);
+                $em->flush();
+            }
+        }
         
         if (!$schedule) {
             throw $this->createNotFoundException('Unable to find schedule.');
@@ -74,52 +91,71 @@ class ScheduleController extends Controller
     }
 
     
-    public function deleteModemAction()
-    {
-        $modems = $this->getModemAsArray();
-        $em = $this->getDoctrine()->getManager();
-        if (is_array($modems)) {
-            foreach ($modems as $modem) {
-                $em->remove($modem);
-                $em->flush();
-            }
-        } else if ($modems != "") {
-            $em->remove($modems);
-            $em->flush();
-        }
-        
-        return $this->redirect($this->generateUrl('MManagerMControlBundle_modem_showAll'));
-    }
-    
-      
-    public function getModemAsArray() 
+    public function deleteAction()
     {
         $request = $this->getRequest();
         $em = $this->getDoctrine()->getManager();
-        $modems = $em->getRepository('MManagerMControlBundle:Modem')->findBy(array ('modem_id' => $request->request->get('ids')));
-        if (is_array($modems)) {
-            foreach ($modems as $modem) {
-                if (is_object($modem)) {
-                    $result = [
-                        'modem_id' => $modem->getModemId(),
-                        'modem_location' => $modem->getModemLocation(),
-                        'modem_phone' => $modem->getModemPhone()
-                    ];
-                } else {
-                    $result = false;
-                }
+        $schedules = $em->getRepository('MManagerMControlBundle:Schedule')->findBy(array ('schedule_id' => $request->request->get('ids')));
+        
+        if (is_array($schedules)) {
+            foreach ($schedules as $schedule) {
+                $em->remove($schedule);
+                $em->flush();
             }
-        } else {
-            if (is_object($modem)) {
-                $result = [
-                    'modem_id' => $modem->getModemId(),
-                    'modem_location' => $modem->getModemLocation(),
-                    'modem_phone' => $modem->getModemPhone()
-                ];
-            } else {
-                $result = false;
-            }
+        } else if ($schedules != "") {
+            $em->remove($schedules);
+            $em->flush();
         }
-        return $result;
+        
+        return $this->redirect($this->generateUrl('MManagerMControlBundle_schedule_showAll'));
     }
+    
+    public function deleteTimeblockAction()
+    {
+        $request = $this->getRequest();
+        $em = $this->getDoctrine()->getManager();
+        $timeblocks = $em->getRepository('MManagerMControlBundle:Timeblock')->findBy(array ('timeblock_id' => $request->request->get('ids')));
+        
+        if (is_array($timeblocks)) {
+            foreach ($timeblocks as $timeblock) {
+                $em->remove($timeblock);
+                $em->flush();
+            }
+        } else if ($timeblocks != "") {
+            $em->remove($timeblock);
+            $em->flush();
+        }
+        return $this->redirect($this->generateUrl('MManagerMControlBundle_schedule_showAll'));
+    }
+    
+//    public function getModemAsArray() 
+//    {
+//        $request = $this->getRequest();
+//        $em = $this->getDoctrine()->getManager();
+//        $modems = $em->getRepository('MManagerMControlBundle:Modem')->findBy(array ('modem_id' => $request->request->get('ids')));
+//        if (is_array($modems)) {
+//            foreach ($modems as $modem) {
+//                if (is_object($modem)) {
+//                    $result = [
+//                        'modem_id' => $modem->getModemId(),
+//                        'modem_location' => $modem->getModemLocation(),
+//                        'modem_phone' => $modem->getModemPhone()
+//                    ];
+//                } else {
+//                    $result = false;
+//                }
+//            }
+//        } else {
+//            if (is_object($modem)) {
+//                $result = [
+//                    'modem_id' => $modem->getModemId(),
+//                    'modem_location' => $modem->getModemLocation(),
+//                    'modem_phone' => $modem->getModemPhone()
+//                ];
+//            } else {
+//                $result = false;
+//            }
+//        }
+//        return $result;
+//    }
 }

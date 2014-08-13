@@ -85,7 +85,7 @@ MManagerMControlBundle_schedule_show:
     pattern:  /schedulelist/{id}
     defaults: { _controller: MManagerMControlBundle:Schedule:show }
     requirements:
-        _method: GET
+        _method: GET|POST
         id: \d+        
         
 MManagerMControlBundle_schedule_showAll:
@@ -97,5 +97,11 @@ MManagerMControlBundle_schedule_showAll:
 MManagerMControlBundle_schedule_delete:
     pattern:  /schedulelist/delete/
     defaults: { _controller: MManagerMControlBundle:Schedule:delete }
+    requirements:
+        _method:  GET|POST
+
+MManagerMControlBundle_schedule_deletetimeblock:
+    pattern:  /schedulelist/deletetimeblock/
+    defaults: { _controller: MManagerMControlBundle:Schedule:deleteTimeblock }
     requirements:
         _method:  GET|POST

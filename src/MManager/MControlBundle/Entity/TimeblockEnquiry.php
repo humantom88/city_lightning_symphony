@@ -13,7 +13,7 @@ class TimeblockEnquiry {
     protected $timeblock_date;
     protected $timeblock_starttime;
     protected $timeblock_endtime;
-    protected $schedule;
+    public $schedule;
     
     public function getTimeblockId()
     {
@@ -32,7 +32,7 @@ class TimeblockEnquiry {
 
     public function setTimeblockDate($timeblock_date)
     {
-        $this->$timeblock_date = $timeblock_date;
+        $this->timeblock_date = $timeblock_date;
     }
 
     public function getTimeblockStarttime()
@@ -55,12 +55,12 @@ class TimeblockEnquiry {
         return $this->timeblock_endtime;
     }
     
-    public function getSchedule()
+    public function getScheduleId()
     {
         return $this->schedule;
     }
     
-    public function setSchedule($schedule)
+    public function setScheduleId($schedule)
     {
         $this->schedule = $schedule;
     }
