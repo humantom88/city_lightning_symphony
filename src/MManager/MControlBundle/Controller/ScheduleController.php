@@ -20,13 +20,10 @@ class ScheduleController extends Controller
     public function showAction($id)
     {
         $em = $this->getDoctrine()->getManager();
-
-        $schedule = $em->getRepository('MManagerMControlBundle:Schedule')->find($id);
-        $timeblocks = $em->getRepository('MManagerMControlBundle:Timeblock')->findBy(['schedule_id' => $id]);
-        $enquiry = new TimeblockEnquiry();
-        $form = $this->createForm(new TimeblockEnquiryType($schedule), $enquiry);
-
         $request = $this->getRequest();
+        $enquiry = new TimeblockEnquiry();
+        $schedule = $em->getRepository('MManagerMControlBundle:Schedule')->find($id);
+        $form = $this->createForm(new TimeblockEnquiryType($schedule), $enquiry);
         
         if ($request->getMethod() == 'POST') {
             $form->bind($request);
@@ -34,6 +31,9 @@ class ScheduleController extends Controller
             if ($form->isValid()) {
                 $newTimeblock = new Timeblock();
                 $data = $form->getData();
+                $timeblock_date = strtotime($data->getTimeblockDate()->format('Y-m-d H:i:s'));
+                $timeblock_starttime = date_create($timeblock_date + strtotime($data->getTimeblockStarttime()->format('Y-m-d H:i:s')));
+                print_r($timeblock_starttime);
                 $newTimeblock->setTimeblockDate($data->getTimeblockDate());
                 $newTimeblock->setTimeblockStarttime($data->getTimeblockStarttime());
                 $newTimeblock->setTimeblockEndtime($data->getTimeblockEndtime());
@@ -42,7 +42,9 @@ class ScheduleController extends Controller
                 $em->flush();
             }
         }
-        
+
+        $timeblocks = $em->getRepository('MManagerMControlBundle:Timeblock')->findBy(['schedule_id' => $id]);
+
         if (!$schedule) {
             throw $this->createNotFoundException('Unable to find schedule.');
         }

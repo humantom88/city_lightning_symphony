@@ -26,8 +26,8 @@
                     <td style="width: 16px;"><input type="checkbox" name="checkmodems" class="checker" id="{{ timeblock.getTimeblockId }}"></td>
                     <td style="width: 16px;">{{ timeblock.getTimeblockId }}</td>
                     <td style="width: 200px;">{{ timeblock.getTimeblockDate()|date('Y-m-d') }}</td>
-                    <td style="width: auto;">{{ timeblock.getTimeblockStartTime()|date('h-m-s') }}</td>
-                    <td style="width: auto;">{{ timeblock.getTimeblockEndTime()|date('h-m-s') }}</td>
+                    <td style="width: auto;">{{ timeblock.getTimeblockStartTime()|date('H:i') }}</td>
+                    <td style="width: auto;">{{ timeblock.getTimeblockEndTime()|date('H:i') }}</td>
                 </tr>
             {% endfor%}
 
