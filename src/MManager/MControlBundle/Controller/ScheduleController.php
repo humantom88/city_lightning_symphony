@@ -9,13 +9,16 @@ use MManager\MControlBundle\Entity\Timeblock;
 use MManager\MControlBundle\Entity\TimeblockEnquiry;
 use MManager\MControlBundle\Form\ScheduleEnquiryType;
 use MManager\MControlBundle\Form\TimeblockEnquiryType;
+use DateTime;
+use DateTimeZone;
+
 /**
  * Blog controller.
  */
 class ScheduleController extends Controller
 {
     /**
-     * Show a blog entry
+     * Show a schedule entry
      */
     public function showAction($id)
     {
@@ -24,6 +27,7 @@ class ScheduleController extends Controller
         $enquiry = new TimeblockEnquiry();
         $schedule = $em->getRepository('MManagerMControlBundle:Schedule')->find($id);
         $form = $this->createForm(new TimeblockEnquiryType($schedule), $enquiry);
+        $timeblocks = $em->getRepository('MManagerMControlBundle:Timeblock')->findBy(['schedule_id' => $id]);
         
         if ($request->getMethod() == 'POST') {
             $form->bind($request);
@@ -32,23 +36,31 @@ class ScheduleController extends Controller
                 $newTimeblock = new Timeblock();
                 $data = $form->getData();
                 $timeblock_date = strtotime($data->getTimeblockDate()->format('Y-m-d H:i:s'));
-                $timeblock_starttime = date_create($timeblock_date + strtotime($data->getTimeblockStarttime()->format('Y-m-d H:i:s')));
-                print_r($timeblock_starttime);
                 $newTimeblock->setTimeblockDate($data->getTimeblockDate());
-                $newTimeblock->setTimeblockStarttime($data->getTimeblockStarttime());
-                $newTimeblock->setTimeblockEndtime($data->getTimeblockEndtime());
+
+                $newDateTime = new DateTime();
+                $timeblock_starttime = $timeblock_date + strtotime($data->getTimeblockStarttime()->format('Y-m-d H:i'));
+                $newDateTime->setTimestamp($timeblock_starttime);
+                $newTimeblock->setTimeblockStarttime($newDateTime->add(date_interval_create_from_date_string('3 hours')));
+                $newDateTime = new DateTime();
+                $timeblock_endtime = $timeblock_date + strtotime($data->getTimeblockEndtime()->format('Y-m-d H:i'));
+                $newDateTime->setTimestamp($timeblock_endtime);
+                $newTimeblock->setTimeblockEndtime($newDateTime->add(date_interval_create_from_date_string('3 hours')));
+
                 $newTimeblock->setScheduleId($schedule = $em->getRepository('MManagerMControlBundle:Schedule')->find($data->getScheduleId()));
                 $em->persist($newTimeblock);
                 $em->flush();
-            }
-        }
 
-        $timeblocks = $em->getRepository('MManagerMControlBundle:Timeblock')->findBy(['schedule_id' => $id]);
+                $timeblocks = $em->getRepository('MManagerMControlBundle:Timeblock')->findBy(['schedule_id' => $id]);
+                
+                return $this->redirect($this->generateUrl('MManagerMControlBundle_schedule_show', array('id' => $id)));
+            }
+        }       
 
         if (!$schedule) {
             throw $this->createNotFoundException('Unable to find schedule.');
         }
-
+                
         return $this->render('MManagerMControlBundle:Schedule:show.html.twig', array(
             'schedule'      => $schedule,
             'form'          => $form->createView(),
@@ -129,35 +141,5 @@ class ScheduleController extends Controller
         }
         return $this->redirect($this->generateUrl('MManagerMControlBundle_schedule_showAll'));
     }
-    
-//    public function getModemAsArray() 
-//    {
-//        $request = $this->getRequest();
-//        $em = $this->getDoctrine()->getManager();
-//        $modems = $em->getRepository('MManagerMControlBundle:Modem')->findBy(array ('modem_id' => $request->request->get('ids')));
-//        if (is_array($modems)) {
-//            foreach ($modems as $modem) {
-//                if (is_object($modem)) {
-//                    $result = [
-//                        'modem_id' => $modem->getModemId(),
-//                        'modem_location' => $modem->getModemLocation(),
-//                        'modem_phone' => $modem->getModemPhone()
-//                    ];
-//                } else {
-//                    $result = false;
-//                }
-//            }
-//        } else {
-//            if (is_object($modem)) {
-//                $result = [
-//                    'modem_id' => $modem->getModemId(),
-//                    'modem_location' => $modem->getModemLocation(),
-//                    'modem_phone' => $modem->getModemPhone()
-//                ];
-//            } else {
-//                $result = false;
-//            }
-//        }
-//        return $result;
-//    }
+
 }

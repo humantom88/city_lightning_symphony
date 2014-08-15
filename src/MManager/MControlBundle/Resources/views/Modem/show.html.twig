@@ -3,13 +3,53 @@
 
 {% block title %}{{ modem.getModemPhone }}{% endblock %}
 
+{% block stylesheets %} 
+    {{ parent() }} 
+{% endblock %}
+
 {% block body %}
-    <article class="modem">
-        <header>
-            <h2>{{ modem.getModemPhone }}</h2>
-        </header>
-        <div>
-            <p>{{ modem.getModemSerial }}</p>
-        </div>
-    </article>
+    <header>
+        <h2>{{ modem.getModemSerial }}</h2>
+    </header>
+    <div>
+        <p>{{ modem.getModemPhone }}</p>
+    </div>
+    <form action="{{ path('MManagerMControlBundle_modem_show', {'id': modem.getModemId}) }}" method="post" {{ form_enctype(form) }} class="mmanager">
+        {{ form_errors(form) }}
+        <table class="table modem">
+            <tr>
+                <th>Свойство</th>
+                <th>Текущее значение</th>
+                <th>Новое значение</th>
+            </tr>
+            <tr>
+                <td>Серийный номер устройства</td>
+                <td>{{ modem.getModemSerial }}</td>
+                <td>{{ form_row(form.modem_serial) }}</td>
+            </tr>
+            <tr>
+                <td>Номер телефона</td>
+                <td>{{ modem.getModemPhone }}</td>
+                <td>{{ form_row(form.modem_phone) }}</td>
+            </tr>
+            <tr>
+                <td>Расписание</td>
+                <td>{{ modem.getScheduleId.getScheduleName }}</td>
+                <td>{{ form_row(form.schedule) }}</td>
+            </tr>
+            <tr>
+                <td>Группа</td>
+                <td>{{ modem.getModemGroupId }}</td>
+                <td>{{ form_row(form.modem_group) }}</td>
+            </tr>
+            <tr class="location">
+                <td>Местонахождение</td>
+                <td>{{ modem.getModemLocation }}</td>
+                <td>{{ form_row(form.modem_location) }}</td>
+            </tr>
+            <tr><td><button type="submit" class="btn btn-primary">Сохранить изменения</button></td></tr>
+        </table>
+        {{ form_rest(form) }}
+    </form>
+        
 {% endblock %}

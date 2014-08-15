@@ -24,7 +24,7 @@
         <tbody id="modems">
             <form>
             {% for modem in modems %}
-                <tr class="activeRow" id="{{ modem.getModemId}}" action="/modemslist/" onselectstart="return false">
+                <tr class="activeRowModem" id="{{ modem.getModemId}}" action="/modemlist/{{ modem.getModemId }}" onselectstart="return false">
                     <td><input type="checkbox" name="checkmodems" class="checker" id="{{ modem.getModemId }}"></td>
                     <td>{{ modem.getModemId }}</td>
                     <td>{{ modem.getModemSerial }}</td>

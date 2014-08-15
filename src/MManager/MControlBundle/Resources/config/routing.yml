@@ -36,10 +36,10 @@ MManagerMControlBundle_main:
             _method: GET
             
 MManagerMControlBundle_modem_show:
-    pattern:  /{id}
+    pattern:  /modemlist/{id}
     defaults: { _controller: MManagerMControlBundle:Modem:show }
     requirements:
-        _method:  GET
+        _method: GET|POST
         id: \d+
         
 MManagerMControlBundle_modem_showAll:

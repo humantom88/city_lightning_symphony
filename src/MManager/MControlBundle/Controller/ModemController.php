@@ -21,16 +21,46 @@ class ModemController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $modem = $em->getRepository('MManagerMControlBundle:Modem')->find($id);
-
+        $modemgroups = $em->getRepository('MManagerMControlBundle:ModemGroup')->findAll();
+        $schedules = $em->getRepository('MManagerMControlBundle:Schedule')->findAll();
+        $enquiry = new ModemEnquiry();
+        $form = $this->createForm(new ModemEnquiryType($modemgroups, $schedules), $enquiry);
+        $request = $this->getRequest();
+        if ($request->getMethod() == 'POST') {
+            $form->bind($request);
+            if ($form->isValid()) {
+                $em = $this->getDoctrine()->getEntityManager();
+                $data = $form->getData();
+                if ($data->getModemSerial()) {
+                    $modem->setModemSerial($data->getModemSerial());
+                }
+                if ($data->getModemPhone()) {
+                    $modem->setModemPhone($data->getModemPhone());
+                }
+                if ($data->getModemLocation()) {
+                    $modem->setModemLocation($data->getModemLocation());
+                }
+                if ($data->getModemSchedule()) {
+                    $modem->setScheduleId($em->getRepository('MManagerMControlBundle:Schedule')->find($data->getModemSchedule()));
+                }
+                if ($data->getModemGroup()) {
+                    //$modem->setModemGroupId($em->getRepository('MManagerMControlBundle:ModemGroup')->find($data->getModemGroup()));
+                }
+                
+                $em->flush();
+            }
+        }
+        
         if (!$modem) {
             throw $this->createNotFoundException('Unable to find modem.');
         }
 
         return $this->render('MManagerMControlBundle:Modem:show.html.twig', array(
             'modem'      => $modem,
+            'form'       => $form->createView()
         ));
     }
-    
+        
     public function showAllAction()
     {
         $em = $this->getDoctrine()->getManager();
