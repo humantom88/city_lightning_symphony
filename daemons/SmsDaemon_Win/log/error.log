@@ -1,0 +1,8 @@
+[18-Aug-2014 12:02:31 Europe/Moscow] PHP Notice:  Undefined variable: basedir in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\run.php on line 19
+[18-Aug-2014 12:02:31 Europe/Moscow] PHP Warning:  opendir(/inbox,/inbox): Не удается найти указанный файл. (code: 2) in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 129
+[18-Aug-2014 12:02:31 Europe/Moscow] PHP Warning:  opendir(/inbox): failed to open dir: No such file or directory in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 129
+[18-Aug-2014 12:02:31 Europe/Moscow] PHP Warning:  closedir() expects parameter 1 to be resource, boolean given in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 138
+[18-Aug-2014 12:02:41 Europe/Moscow] PHP Warning:  opendir(/inbox,/inbox): Не удается найти указанный файл. (code: 2) in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 129
+[18-Aug-2014 12:02:41 Europe/Moscow] PHP Warning:  opendir(/inbox): failed to open dir: No such file or directory in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 129
+[18-Aug-2014 12:02:41 Europe/Moscow] PHP Warning:  closedir() expects parameter 1 to be resource, boolean given in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 138
+[18-Aug-2014 12:04:39 Europe/Moscow] PHP Notice:  Undefined variable: basedir in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\run.php on line 15

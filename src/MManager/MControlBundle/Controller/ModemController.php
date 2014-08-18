@@ -107,7 +107,7 @@ class ModemController extends Controller
             'inbox' => 'c:/gammu/inbox/',
             'outbox' => 'c:/gammu/outbox/',
             'sent' => 'c:/gammu/sent/',
-            'errors' => 'c:/gammu/errors/'
+            'errors' => 'c:/gammu/error/'
         ]);
         
         $modems = $this->getModemAsArray();
@@ -126,7 +126,7 @@ class ModemController extends Controller
     
     public function deleteModemAction()
     {
-        $modems = $this->getModemAsArray();
+        $modems = $this->getModemAsObject();
         $em = $this->getDoctrine()->getManager();
         if (is_array($modems)) {
             foreach ($modems as $modem) {
