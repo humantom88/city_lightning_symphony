@@ -41,7 +41,18 @@ class Modem
      * @ORM\Column(type="text")
      */
     protected $modem_phone;
+    
+    /**
+     * @ORM\Column(type="text")
+     */
+    protected $modem_status;
 
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    protected $last_update;
+    
+    
     /**
      * @ORM\ManyToOne(targetEntity="Schedule", inversedBy="modems")
      * @ORM\JoinColumn(name="schedule_id", referencedColumnName="schedule_id")
@@ -181,5 +192,28 @@ class Modem
     public function getScheduleId()
     {
         return $this->schedule_id;
+    }
+
+    /**
+     * Set modem_status
+     *
+     * @param string $modemStatus
+     * @return Modem
+     */
+    public function setModemStatus($modemStatus)
+    {
+        $this->modem_status = $modemStatus;
+
+        return $this;
+    }
+
+    /**
+     * Get modem_status
+     *
+     * @return string 
+     */
+    public function getModemStatus()
+    {
+        return $this->modem_status;
     }
 }

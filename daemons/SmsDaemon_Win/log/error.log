@@ -226,3 +226,21 @@
 [19-Aug-2014 16:22:48 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 120
 [19-Aug-2014 16:22:48 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 114
 [19-Aug-2014 16:22:48 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 120
+[19-Aug-2014 20:04:59 Europe/Berlin] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [2002] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение.
+' in C:\xampp\htdocs\projects\symfony\daemons\SmsDaemon_Win\daemon.php:24
+Stack trace:
+#0 C:\xampp\htdocs\projects\symfony\daemons\SmsDaemon_Win\daemon.php(24): PDO->__construct('mysql:host=loca...', 'root', '')
+#1 C:\xampp\htdocs\projects\symfony\daemons\SmsDaemon_Win\daemon.php(140): Daemon->setDbConnection()
+#2 C:\xampp\htdocs\projects\symfony\daemons\SmsDaemon_Win\daemon.php(58): Daemon->checkSchedule()
+#3 [internal function]: Daemon->loopCycle()
+#4 C:\xampp\htdocs\projects\symfony\daemons\SmsDaemon_Win\daemon.php(176): call_user_method('loopCycle', Object(Daemon))
+#5 C:\xampp\htdocs\projects\symfony\daemons\SmsDaemon_Win\daemon.php(35): Daemon->launchJob()
+#6 C:\xampp\htdocs\projects\symfony\daemons\SmsDaemon_Win\run.php(18): Daemon->run()
+#7 {main}
+  thrown in C:\xampp\htdocs\projects\symfony\daemons\SmsDaemon_Win\daemon.php on line 24
+[19-Aug-2014 20:44:28 Europe/Berlin] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\projects\symfony\daemons\SmsDaemon_Win\daemon.php on line 129
+[19-Aug-2014 20:44:28 Europe/Berlin] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\projects\symfony\daemons\SmsDaemon_Win\daemon.php on line 135
+[19-Aug-2014 20:44:28 Europe/Berlin] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\projects\symfony\daemons\SmsDaemon_Win\daemon.php on line 129
+[19-Aug-2014 20:44:28 Europe/Berlin] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\projects\symfony\daemons\SmsDaemon_Win\daemon.php on line 135
+[19-Aug-2014 20:44:28 Europe/Berlin] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\projects\symfony\daemons\SmsDaemon_Win\daemon.php on line 129
+[19-Aug-2014 20:44:28 Europe/Berlin] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\projects\symfony\daemons\SmsDaemon_Win\daemon.php on line 135

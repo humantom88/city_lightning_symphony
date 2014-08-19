@@ -41,11 +41,43 @@ class Daemon {
 	//Блок 1 Чтение входящих сообщений из папки Inbox, занесение в БД, перенос в архив.
 	$newMessages = $this->checkInbox($this->gammuPath . '/inbox');
 	if ($newMessages) {
+            foreach ($newMessages as $k => $newMessage) {
+                if (empty($newMessage['sms_from'])) {
+                    if (!$this->db) {
+                        $this->setDbConnection();
+                        $sql = "SELECT `modem_id` FROM `mmanager`.`modems` WHERE `modem_phone`=:modem_from";
+                        $result = $this->db->prepare($sql);
+                        $result->bindParam(':modem_from', $newMessages['sms_from']);
+                        $result->execute();
+                        $mid = $result->fetch();
+                        print_r ($mid);
+                        if ($mid) {
+                            $newMessages[$k] = $mid['modem_id'];
+                        }
+                    }
+                }
+            }
 	    $this->insertMessagesToDb($newMessages);
+            $this->updateModemStatus($newMessages);
 	}
 	//Блок 2 Рассылка по расписанию
 	$this->checkSchedule();
 
+    }
+    
+    private function updateModemStatus ($newMessages = "")
+    {
+        //ATM2-485,TEST:IN2,11:13:57
+        if (!empty($newMessages)) {
+            foreach ($newMessages as $k => $newMessage) {
+                if($newMessage['sms_text']) {
+                    $res = $this->parseModemAns($newMessage['sms_text']);
+                    if (!empty($res)) {
+                        file_put_contents('c:\\log\\log.txt', print_r($res),FILE_APPEND);	
+                    }
+                }
+            }
+        }
     }
     
     private function getModemIdByPhone($modemPhone) 
@@ -78,11 +110,9 @@ class Daemon {
 
             if (empty($modem_id)) {
                 $result = $this->db->prepare($sql1);
-                echo ('Request is: $sql1');
             } else {
                 $result = $this->db->prepare($sql2);
                 $newMessage['modem_id'] = $modem_id;
-                echo ('Request is: $sql2');
             }
             
 	    $sentdate = date($newMessage['sms_date']. ' '. $newMessage['sms_time']);
@@ -92,16 +122,9 @@ class Daemon {
 	    $result->bindParam(':smsText', $newMessage['sms_text']);
 	    $result->bindParam(':smsFrom', $newMessage['sms_from']);
 	    $result->bindParam(':smsSentDate', $sentdate);
-           
-            print_r ($newMessage);
+          
 	    $result->execute();
             
-            //ATM2-485,TEST:IN2,11:13:57
-
-            //$res = $this->parseModemAns($newMessage['sms_text']);
-            //if (!empty($res)) {
-                //file_put_contents('c:\\log\\log.txt', print_r($res),FILE_APPEND);	
-            //}
             $this->closeDbConnection();
 	}
     }
