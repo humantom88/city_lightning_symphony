@@ -6,3 +6,223 @@
 [18-Aug-2014 12:02:41 Europe/Moscow] PHP Warning:  opendir(/inbox): failed to open dir: No such file or directory in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 129
 [18-Aug-2014 12:02:41 Europe/Moscow] PHP Warning:  closedir() expects parameter 1 to be resource, boolean given in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 138
 [18-Aug-2014 12:04:39 Europe/Moscow] PHP Notice:  Undefined variable: basedir in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\run.php on line 15
+[19-Aug-2014 09:39:19 Europe/Moscow] PHP Fatal error:  Call to undefined function exist() in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 57
+[19-Aug-2014 09:43:22 Europe/Moscow] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 78
+[19-Aug-2014 09:43:22 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 98
+[19-Aug-2014 09:43:22 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 104
+[19-Aug-2014 09:43:22 Europe/Moscow] PHP Notice:  Undefined variable: result in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 107
+[19-Aug-2014 09:43:22 Europe/Moscow] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 78
+[19-Aug-2014 09:43:22 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 98
+[19-Aug-2014 09:43:22 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 104
+[19-Aug-2014 09:43:22 Europe/Moscow] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 78
+[19-Aug-2014 09:43:22 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 98
+[19-Aug-2014 09:43:22 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 104
+[19-Aug-2014 09:43:22 Europe/Moscow] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 78
+[19-Aug-2014 09:43:22 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 98
+[19-Aug-2014 09:43:22 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 104
+[19-Aug-2014 09:43:22 Europe/Moscow] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 78
+[19-Aug-2014 09:43:22 Europe/Moscow] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 78
+[19-Aug-2014 09:43:22 Europe/Moscow] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 78
+[19-Aug-2014 09:43:22 Europe/Moscow] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 78
+[19-Aug-2014 09:43:22 Europe/Moscow] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 78
+[19-Aug-2014 09:43:22 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 98
+[19-Aug-2014 09:43:22 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 104
+[19-Aug-2014 09:47:20 Europe/Moscow] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 78
+[19-Aug-2014 09:47:20 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 98
+[19-Aug-2014 09:47:20 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 104
+[19-Aug-2014 09:47:20 Europe/Moscow] PHP Notice:  Undefined variable: result in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 107
+[19-Aug-2014 09:47:20 Europe/Moscow] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 78
+[19-Aug-2014 09:47:20 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 98
+[19-Aug-2014 09:47:20 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 104
+[19-Aug-2014 09:47:20 Europe/Moscow] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 78
+[19-Aug-2014 09:47:20 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 98
+[19-Aug-2014 09:47:20 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 104
+[19-Aug-2014 09:47:20 Europe/Moscow] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 78
+[19-Aug-2014 09:47:20 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 98
+[19-Aug-2014 09:47:20 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 104
+[19-Aug-2014 09:47:20 Europe/Moscow] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 78
+[19-Aug-2014 09:47:20 Europe/Moscow] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 78
+[19-Aug-2014 09:47:20 Europe/Moscow] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 78
+[19-Aug-2014 09:47:20 Europe/Moscow] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 78
+[19-Aug-2014 09:47:20 Europe/Moscow] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 78
+[19-Aug-2014 09:47:20 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 98
+[19-Aug-2014 09:47:20 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 104
+[19-Aug-2014 09:49:08 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 98
+[19-Aug-2014 09:49:08 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 104
+[19-Aug-2014 09:49:08 Europe/Moscow] PHP Notice:  Undefined variable: result in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 107
+[19-Aug-2014 09:49:08 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 98
+[19-Aug-2014 09:49:08 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 104
+[19-Aug-2014 09:49:08 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 98
+[19-Aug-2014 09:49:08 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 104
+[19-Aug-2014 09:49:08 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 98
+[19-Aug-2014 09:49:08 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 104
+[19-Aug-2014 09:49:08 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 98
+[19-Aug-2014 09:49:08 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 104
+[19-Aug-2014 14:24:44 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 100
+[19-Aug-2014 14:24:44 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 106
+[19-Aug-2014 14:24:44 Europe/Moscow] PHP Notice:  Undefined variable: result in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 109
+[19-Aug-2014 14:24:44 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 100
+[19-Aug-2014 14:24:44 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 106
+[19-Aug-2014 14:24:45 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 100
+[19-Aug-2014 14:24:45 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 106
+[19-Aug-2014 14:24:45 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 100
+[19-Aug-2014 14:24:45 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 106
+[19-Aug-2014 14:24:45 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 100
+[19-Aug-2014 14:24:45 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 106
+[19-Aug-2014 15:05:17 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 101
+[19-Aug-2014 15:05:18 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 107
+[19-Aug-2014 15:05:18 Europe/Moscow] PHP Notice:  Undefined variable: result in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 110
+[19-Aug-2014 15:05:18 Europe/Moscow] PHP Notice:  Array to string conversion in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 78
+[19-Aug-2014 15:05:18 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 101
+[19-Aug-2014 15:05:18 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 107
+[19-Aug-2014 15:05:18 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 101
+[19-Aug-2014 15:05:18 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 107
+[19-Aug-2014 15:05:18 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 101
+[19-Aug-2014 15:05:18 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 107
+[19-Aug-2014 15:05:18 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 101
+[19-Aug-2014 15:05:18 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 107
+[19-Aug-2014 15:06:49 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 101
+[19-Aug-2014 15:06:49 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 107
+[19-Aug-2014 15:06:49 Europe/Moscow] PHP Notice:  Undefined variable: result in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 111
+[19-Aug-2014 15:06:49 Europe/Moscow] PHP Notice:  Array to string conversion in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 78
+[19-Aug-2014 15:06:49 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 101
+[19-Aug-2014 15:06:49 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 107
+[19-Aug-2014 15:06:49 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 101
+[19-Aug-2014 15:06:49 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 107
+[19-Aug-2014 15:06:49 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 101
+[19-Aug-2014 15:06:49 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 107
+[19-Aug-2014 15:06:50 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 101
+[19-Aug-2014 15:06:50 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 107
+[19-Aug-2014 15:09:09 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 101
+[19-Aug-2014 15:09:09 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 107
+[19-Aug-2014 15:09:09 Europe/Moscow] PHP Notice:  Undefined variable: result in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 111
+[19-Aug-2014 15:09:09 Europe/Moscow] PHP Notice:  Array to string conversion in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 78
+[19-Aug-2014 15:09:09 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 101
+[19-Aug-2014 15:09:09 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 107
+[19-Aug-2014 15:09:09 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 101
+[19-Aug-2014 15:09:09 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 107
+[19-Aug-2014 15:09:09 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 101
+[19-Aug-2014 15:09:09 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 107
+[19-Aug-2014 15:09:09 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 101
+[19-Aug-2014 15:09:09 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 107
+[19-Aug-2014 15:44:58 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 103
+[19-Aug-2014 15:44:58 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 109
+[19-Aug-2014 15:44:58 Europe/Moscow] PHP Notice:  Undefined variable: result in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 113
+[19-Aug-2014 15:44:58 Europe/Moscow] PHP Notice:  Array to string conversion in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 80
+[19-Aug-2014 15:44:58 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 103
+[19-Aug-2014 15:44:58 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 109
+[19-Aug-2014 15:44:58 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 103
+[19-Aug-2014 15:44:58 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 109
+[19-Aug-2014 15:44:58 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 103
+[19-Aug-2014 15:44:58 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 109
+[19-Aug-2014 15:44:59 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 103
+[19-Aug-2014 15:44:59 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 109
+[19-Aug-2014 15:47:45 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 101
+[19-Aug-2014 15:47:45 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 107
+[19-Aug-2014 15:47:45 Europe/Moscow] PHP Notice:  Undefined variable: result in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 111
+[19-Aug-2014 15:47:45 Europe/Moscow] PHP Notice:  Array to string conversion in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 79
+[19-Aug-2014 15:47:45 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 101
+[19-Aug-2014 15:47:45 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 107
+[19-Aug-2014 15:47:45 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 101
+[19-Aug-2014 15:47:45 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 107
+[19-Aug-2014 15:47:45 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 101
+[19-Aug-2014 15:47:45 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 107
+[19-Aug-2014 15:47:45 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 101
+[19-Aug-2014 15:47:45 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 107
+[19-Aug-2014 15:49:27 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 102
+[19-Aug-2014 15:49:27 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 108
+[19-Aug-2014 15:49:27 Europe/Moscow] PHP Notice:  Undefined variable: result in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 112
+[19-Aug-2014 15:49:27 Europe/Moscow] PHP Notice:  Array to string conversion in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 79
+[19-Aug-2014 15:49:27 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 102
+[19-Aug-2014 15:49:27 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 108
+[19-Aug-2014 15:49:27 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 102
+[19-Aug-2014 15:49:27 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 108
+[19-Aug-2014 15:49:27 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 102
+[19-Aug-2014 15:49:27 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 108
+[19-Aug-2014 15:49:28 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 102
+[19-Aug-2014 15:49:28 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 108
+[19-Aug-2014 15:54:12 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 103
+[19-Aug-2014 15:54:12 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 109
+[19-Aug-2014 15:54:12 Europe/Moscow] PHP Notice:  Undefined variable: result in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 113
+[19-Aug-2014 15:54:12 Europe/Moscow] PHP Notice:  Array to string conversion in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 80
+[19-Aug-2014 15:54:12 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 103
+[19-Aug-2014 15:54:12 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 109
+[19-Aug-2014 15:54:12 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 103
+[19-Aug-2014 15:54:12 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 109
+[19-Aug-2014 15:54:12 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 103
+[19-Aug-2014 15:54:12 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 109
+[19-Aug-2014 15:54:12 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 103
+[19-Aug-2014 15:54:12 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 109
+[19-Aug-2014 15:57:58 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 102
+[19-Aug-2014 15:57:58 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 108
+[19-Aug-2014 15:57:58 Europe/Moscow] PHP Notice:  Undefined variable: result in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 112
+[19-Aug-2014 15:57:58 Europe/Moscow] PHP Warning:  Illegal string offset 'modem_id' in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 70
+[19-Aug-2014 15:57:58 Europe/Moscow] PHP Warning:  Illegal string offset 'modem_id' in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 79
+[19-Aug-2014 15:57:58 Europe/Moscow] PHP Fatal error:  Only variables can be passed by reference in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 79
+[19-Aug-2014 15:59:45 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 104
+[19-Aug-2014 15:59:45 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 110
+[19-Aug-2014 15:59:45 Europe/Moscow] PHP Warning:  Illegal string offset 'modem_id' in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 72
+[19-Aug-2014 15:59:45 Europe/Moscow] PHP Warning:  Illegal string offset 'modem_id' in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 81
+[19-Aug-2014 15:59:45 Europe/Moscow] PHP Fatal error:  Only variables can be passed by reference in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 81
+[19-Aug-2014 16:00:55 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 103
+[19-Aug-2014 16:00:55 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 109
+[19-Aug-2014 16:00:55 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 103
+[19-Aug-2014 16:00:55 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 109
+[19-Aug-2014 16:00:55 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 103
+[19-Aug-2014 16:00:55 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 109
+[19-Aug-2014 16:00:55 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 103
+[19-Aug-2014 16:00:55 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 109
+[19-Aug-2014 16:00:55 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 103
+[19-Aug-2014 16:00:55 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 109
+[19-Aug-2014 16:07:27 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 109
+[19-Aug-2014 16:07:27 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 115
+[19-Aug-2014 16:12:56 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 110
+[19-Aug-2014 16:12:56 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 116
+[19-Aug-2014 16:12:56 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 110
+[19-Aug-2014 16:12:56 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 116
+[19-Aug-2014 16:12:56 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 110
+[19-Aug-2014 16:12:56 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 116
+[19-Aug-2014 16:12:56 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 110
+[19-Aug-2014 16:12:56 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 116
+[19-Aug-2014 16:12:56 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 110
+[19-Aug-2014 16:12:56 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 116
+[19-Aug-2014 16:18:17 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 109
+[19-Aug-2014 16:18:17 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 115
+[19-Aug-2014 16:18:17 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 109
+[19-Aug-2014 16:18:17 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 115
+[19-Aug-2014 16:18:17 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 109
+[19-Aug-2014 16:18:17 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 115
+[19-Aug-2014 16:18:17 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 109
+[19-Aug-2014 16:18:17 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 115
+[19-Aug-2014 16:18:17 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 109
+[19-Aug-2014 16:18:17 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 115
+[19-Aug-2014 16:19:17 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 109
+[19-Aug-2014 16:19:17 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 115
+[19-Aug-2014 16:19:17 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 109
+[19-Aug-2014 16:19:17 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 115
+[19-Aug-2014 16:19:17 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 109
+[19-Aug-2014 16:19:17 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 115
+[19-Aug-2014 16:19:17 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 109
+[19-Aug-2014 16:19:17 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 115
+[19-Aug-2014 16:19:17 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 109
+[19-Aug-2014 16:19:17 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 115
+[19-Aug-2014 16:19:37 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 111
+[19-Aug-2014 16:19:37 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 117
+[19-Aug-2014 16:19:37 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 111
+[19-Aug-2014 16:19:37 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 117
+[19-Aug-2014 16:19:37 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 111
+[19-Aug-2014 16:19:37 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 117
+[19-Aug-2014 16:19:37 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 111
+[19-Aug-2014 16:19:37 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 117
+[19-Aug-2014 16:19:38 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 111
+[19-Aug-2014 16:19:38 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 117
+[19-Aug-2014 16:22:47 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 114
+[19-Aug-2014 16:22:47 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 120
+[19-Aug-2014 16:22:47 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 114
+[19-Aug-2014 16:22:47 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 120
+[19-Aug-2014 16:22:47 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 114
+[19-Aug-2014 16:22:47 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 120
+[19-Aug-2014 16:22:47 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 114
+[19-Aug-2014 16:22:48 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 120
+[19-Aug-2014 16:22:48 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 114
+[19-Aug-2014 16:22:48 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 120

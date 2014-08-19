@@ -41,72 +41,88 @@ class Daemon {
 	//Блок 1 Чтение входящих сообщений из папки Inbox, занесение в БД, перенос в архив.
 	$newMessages = $this->checkInbox($this->gammuPath . '/inbox');
 	if ($newMessages) {
-	    $this->insertMessagesToDb ($newMessages);
+	    $this->insertMessagesToDb($newMessages);
 	}
 	//Блок 2 Рассылка по расписанию
 	$this->checkSchedule();
 
     }
+    
+    private function getModemIdByPhone($modemPhone) 
+    {
+        if (!$this->db) {
+            $this->setDbConnection();
+        }
+        $sql = "SELECT * FROM `mmanager`.`modems` WHERE `modem_phone`=:modem_phone";
+        $result = $this->db->prepare($sql);
+        $result->bindParam(':modem_phone', $modemPhone);
+        $result->execute();
+        $modem_id = $result->fetch();
+        
+        $this->closeDbConnection();
+        return $modem_id ? $modem_id['modem_id'] : false;
+    }
 
     private function insertMessagesToDb ($newMessages){
 	$this->setDbConnection();
-	$sql = "INSERT INTO `mmanager`.`smsmessages` (`sms_text`, `sms_from`, `sms_sentdate`) VALUES (:smsText, :smsFrom, :smsSentDate)";
-	$result = $this->db->prepare($sql);
-	foreach ($newMessages as $newMessage) {
-	    echo "Message\r\n";
-    	    print_r($newMessage);
+        $modem_id = "";
+        
+        $sql1 = "INSERT INTO `mmanager`.`smsmessages` (`sms_text`, `sms_from`, `sms_sentdate`) VALUES (:smsText, :smsFrom, :smsSentDate)";
+        $sql2 = "INSERT INTO `mmanager`.`smsmessages` (`modem_id`, `sms_text`, `sms_from`, `sms_sentdate`) VALUES (:modem_id, :smsText, :smsFrom, :smsSentDate)";
+        foreach ($newMessages as $newMessage) {
+            
+            if (!empty($newMessage['sms_from'])) {
+                $modem_id = $this->getModemIdByPhone($newMessage['sms_from']);
+                $this->setDbConnection();
+            }
+
+            if (empty($modem_id)) {
+                $result = $this->db->prepare($sql1);
+                echo ('Request is: $sql1');
+            } else {
+                $result = $this->db->prepare($sql2);
+                $newMessage['modem_id'] = $modem_id;
+                echo ('Request is: $sql2');
+            }
+            
 	    $sentdate = date($newMessage['sms_date']. ' '. $newMessage['sms_time']);
-	    print_r($sentdate);
+        if (!empty($newMessage['modem_id'])) {
+            $result->bindParam(':modem_id', $newMessage['modem_id']);
+        }
 	    $result->bindParam(':smsText', $newMessage['sms_text']);
 	    $result->bindParam(':smsFrom', $newMessage['sms_from']);
 	    $result->bindParam(':smsSentDate', $sentdate);
-
-	    //ATM2-485,TEST:IN2,11:13:57
-	$res = $this->parseModemAns($newMessage['sms_text']);	
-	if (!empty($res)) {
-            file_put_contents('c:\\log\\log.txt', print_r($res),FILE_APPEND);	
-    	}		
-
+           
+            print_r ($newMessage);
 	    $result->execute();
-	}
+            
+            //ATM2-485,TEST:IN2,11:13:57
 
-	
-	$this->closeDbConnection();
+            //$res = $this->parseModemAns($newMessage['sms_text']);
+            //if (!empty($res)) {
+                //file_put_contents('c:\\log\\log.txt', print_r($res),FILE_APPEND);	
+            //}
+            $this->closeDbConnection();
+	}
     }
 
     private function parseModemAns($answerString) {
 	$arr = explode(",",$answerString);
-	if ($arr[0]) {
+        $result = "";
+	if (is_array($arr) && $arr[0] != null) {
 	    $result['device_type'] = $arr[0];
 	}
-	if ($arr[1]) {
+	if (is_array($arr) && $arr[1] != null) {
 	    $t = explode(':', $arr[1]);
-	    if ($t[1]) {
+	    if (is_array($t) && $t[1]) {
 		$result['device_answer'] = $t[1];
 	    }			
 	}
-	if ($arr[2]) {
+	if (is_array($arr) && $arr[2] != null) {
 	    $result['response_time'] = $arr[2];
-	}
-	return $result;
-    }
 
-    private function getModemIdByPhone($phone) {
-	if (!$this->db) {
-	    $this->setDbConnection();
-	}
-	$phone = "";
-	$sql = "SELECT `modem_id` FROM `modems` WHERE modem_phone = :phone";
-	if ($result = $this->db->query($sql)) {
-	    $result->bindParam(':phone', $phone);
-	    $result->execute();
-	    $phone = $result->fetchAll();
-	};
-
-	if ($phone != "" && exist($phone['modem_id'])) {
-	    return $phone['modem_id'];
-	}
-	return false;
+        }
+	return $result ? $result : false;
     }
 
     private function checkSchedule() {
