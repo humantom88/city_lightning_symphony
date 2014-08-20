@@ -10,7 +10,7 @@
         </header>
     </article>
             
-    <table class="table">
+    <table class="table" id="tsorter">
         <thead>
             <tr>
                 <th style="text-align: center;">#</th>
@@ -48,6 +48,7 @@
             </form>
         </tbody>
     </table>
+
 {% endblock %}
 
 {% block sidebar %}
@@ -57,6 +58,32 @@
         </div>
         <div class="panel-body">
             <button class="btn btn-default" id="deletemodem" action="{{ path('MManagerMControlBundle_schedule_deletetimeblock') }}">Удалить выделенные</button>
+        </div>
+        <div class="panel-body form-class">
+            {% form_theme form_upload _self %}
+            
+            {% block text_widget %}
+                <div class="text_widget">
+                    {% set class = class|default('form-control') %}
+                    {{ block('form_widget_simple') }}
+                </div>
+            {% endblock %}
+            
+            {% block field_row %}
+                <div class="field_row">
+                    {% set class = class|default('form-control') %}
+                    {#{ block('form_widget_simple') }#}
+                </div>
+            {% endblock %}
+            
+            <form class="panel-form" action="{{ path('MManagerMControlBundle_schedule_upload') }}" method="post" {{ form_enctype(form_upload) }}>
+                {#{ form_widget(form_upload) }#}
+                {{ form_errors(form_upload) }}
+                {{ form_row(form_upload.file) }}
+                {{ form_row(form_upload.name) }}
+                {{ form_rest(form_upload)}}
+            <input type="submit" value="Upload Document" />
+        </form>
         </div>
     </div>
 {% endblock %}

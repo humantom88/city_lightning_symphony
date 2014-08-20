@@ -8,7 +8,7 @@
 
 {% block title %}Modems list{% endblock %}
 {% block body %}
-    <table class="table">
+    <table class="table" id="tsorter">
         <thead>
             <tr>
                 <th>#</th>
@@ -30,7 +30,7 @@
                     <td>{{ modem.getModemSerial }}</td>
                     <td>{{ modem.getModemPhone }}</td>
                     <td>{{ modem.getModemLocation }}</td>
-                    <td id="modem_status">{{ modem.getModemStatus }}</td>
+                    <td class="modem_status">{{ modem.getModemStatus }}</td>
                     <td>{{ modem.getLastUpdate|date('Y-m-d H:i:s') }}</td>
                     <td></td>
                 </tr>
@@ -83,6 +83,7 @@
                             <button type="submit" class="btn btn-primary">Сохранить изменения</button>
                         </div>
                     </form>
+                </div>
             </div>
         </div>
     </div>

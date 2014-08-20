@@ -9,6 +9,7 @@ use MManager\MControlBundle\Entity\Timeblock;
 use MManager\MControlBundle\Entity\TimeblockEnquiry;
 use MManager\MControlBundle\Form\ScheduleEnquiryType;
 use MManager\MControlBundle\Form\TimeblockEnquiryType;
+use MManager\MControlBundle\Entity\Document;
 use DateTime;
 use DateTimeZone;
 
@@ -29,6 +30,12 @@ class ScheduleController extends Controller
         $form = $this->createForm(new TimeblockEnquiryType($schedule), $enquiry);
         $timeblocks = $em->getRepository('MManagerMControlBundle:Timeblock')->findBy(['schedule_id' => $id]);
         
+        $document = new Document();
+        $upload_form = $this->createFormBuilder($document)
+            ->add('name')
+            ->add('file','file')
+            ->getForm();
+
         if ($request->getMethod() == 'POST') {
             $form->bind($request);
             
@@ -60,11 +67,12 @@ class ScheduleController extends Controller
         if (!$schedule) {
             throw $this->createNotFoundException('Unable to find schedule.');
         }
-                
+
         return $this->render('MManagerMControlBundle:Schedule:show.html.twig', array(
             'schedule'      => $schedule,
             'form'          => $form->createView(),
-            'timeblocks'    => $timeblocks
+            'timeblocks'    => $timeblocks,
+            'form_upload'   => $upload_form->createView()
         ));
     }
     
@@ -104,13 +112,12 @@ class ScheduleController extends Controller
         ));        
     }
 
-    
     public function deleteAction()
     {
         $request = $this->getRequest();
         $em = $this->getDoctrine()->getManager();
         $schedules = $em->getRepository('MManagerMControlBundle:Schedule')->findBy(array ('schedule_id' => $request->request->get('ids')));
-        
+
         if (is_array($schedules)) {
             foreach ($schedules as $schedule) {
                 $em->remove($schedule);
@@ -120,7 +127,7 @@ class ScheduleController extends Controller
             $em->remove($schedules);
             $em->flush();
         }
-        
+
         return $this->redirect($this->generateUrl('MManagerMControlBundle_schedule_showAll'));
     }
     
@@ -142,4 +149,27 @@ class ScheduleController extends Controller
         return $this->redirect($this->generateUrl('MManagerMControlBundle_schedule_showAll'));
     }
 
+    public function uploadAction()
+    {
+        $document = new Document();
+        $form = $this->createFormBuilder($document)
+            ->add('name')
+            ->add('file','file')
+            ->getForm();
+        if ($this->getRequest()->getMethod() === 'POST') {
+            if (!empty($form)) {
+                $form->bind($this->getRequest());
+            }
+            if ($form->isValid()) {
+                $em = $this->getDoctrine()->getEntityManager();
+                $result = $form->getData();
+                //print_r($result->getFile());
+                $em->persist($document);
+                $em->flush();
+
+                return $this->redirect($this->generateUrl('MManagerMControlBundle_schedule_showAll'));
+            }
+        }
+        return $this->redirect($this->generateUrl('MManagerMControlBundle_schedule_showAll',array ('form_upload' => $form->createView())));
+    }
 }

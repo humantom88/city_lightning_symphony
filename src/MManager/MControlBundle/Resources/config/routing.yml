@@ -105,3 +105,9 @@ MManagerMControlBundle_schedule_deletetimeblock:
     defaults: { _controller: MManagerMControlBundle:Schedule:deleteTimeblock }
     requirements:
         _method:  GET|POST
+
+MManagerMControlBundle_schedule_upload:
+    pattern:  /schedulelist/upload/
+    defaults: { _controller: MManagerMControlBundle:Schedule:upload }
+    requirements:
+        _method:  GET|POST
