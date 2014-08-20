@@ -216,4 +216,27 @@ class Modem
     {
         return $this->modem_status;
     }
+
+    /**
+     * Set last_update
+     *
+     * @param \DateTime $lastUpdate
+     * @return Modem
+     */
+    public function setLastUpdate($lastUpdate)
+    {
+        $this->last_update = $lastUpdate;
+
+        return $this;
+    }
+
+    /**
+     * Get last_update
+     *
+     * @return \DateTime 
+     */
+    public function getLastUpdate()
+    {
+        return $this->last_update;
+    }
 }

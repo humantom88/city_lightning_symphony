@@ -3,8 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/xampp/htdocs/symfony/src/MManager/MControlBundle/Entity/Modem.php</file>
+            <file>file:/C:/xampp/htdocs/symfony/src/MManager/MControlBundle/Resources/views/Modem/show.html.twig</file>
+            <file>file:/C:/xampp/htdocs/symfony/web/bundles/modemmanager/js/MainForm/main.js</file>
             <file>file:/C:/xampp/htdocs/symfony/daemons/SmsDaemon_Win/daemon.php</file>
-            <file>file:/C:/xampp/htdocs/symfony/daemons/SmsDaemon_Win/run.php</file>
+            <file>file:/C:/xampp/htdocs/symfony/src/MManager/MControlBundle/Classes/Gammu.php</file>
+            <file>file:/C:/xampp/htdocs/symfony/src/MManager/MControlBundle/Resources/views/Modem/showAll.html.twig</file>
             <file>file:/C:/xampp/htdocs/symfony/src/MManager/MControlBundle/Controller/ModemController.php</file>
         </group>
     </open-files>

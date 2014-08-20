@@ -244,3 +244,195 @@ Stack trace:
 [19-Aug-2014 20:44:28 Europe/Berlin] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\projects\symfony\daemons\SmsDaemon_Win\daemon.php on line 135
 [19-Aug-2014 20:44:28 Europe/Berlin] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\projects\symfony\daemons\SmsDaemon_Win\daemon.php on line 129
 [19-Aug-2014 20:44:28 Europe/Berlin] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\projects\symfony\daemons\SmsDaemon_Win\daemon.php on line 135
+[20-Aug-2014 09:19:39 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 146
+[20-Aug-2014 09:19:39 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 152
+[20-Aug-2014 09:19:39 Europe/Moscow] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 84
+[20-Aug-2014 09:19:39 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 146
+[20-Aug-2014 09:19:39 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 152
+[20-Aug-2014 09:19:39 Europe/Moscow] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 84
+[20-Aug-2014 09:19:39 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 146
+[20-Aug-2014 09:19:39 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 152
+[20-Aug-2014 09:19:39 Europe/Moscow] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 84
+[20-Aug-2014 09:19:39 Europe/Moscow] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 84
+[20-Aug-2014 09:19:39 Europe/Moscow] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 84
+[20-Aug-2014 09:19:39 Europe/Moscow] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 84
+[20-Aug-2014 09:19:39 Europe/Moscow] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 84
+[20-Aug-2014 09:19:39 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 146
+[20-Aug-2014 09:19:39 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 152
+[20-Aug-2014 09:19:39 Europe/Moscow] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 84
+[20-Aug-2014 09:22:04 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 146
+[20-Aug-2014 09:22:04 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 152
+[20-Aug-2014 09:22:04 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 146
+[20-Aug-2014 09:22:04 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 152
+[20-Aug-2014 09:22:04 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 146
+[20-Aug-2014 09:22:04 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 152
+[20-Aug-2014 09:22:04 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 146
+[20-Aug-2014 09:22:04 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 152
+[20-Aug-2014 09:24:16 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 154
+[20-Aug-2014 09:24:16 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 160
+[20-Aug-2014 09:24:16 Europe/Moscow] PHP Notice:  Undefined index: device_answer in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 83
+[20-Aug-2014 09:24:16 Europe/Moscow] PHP Notice:  Undefined index: modem_id in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 87
+[20-Aug-2014 09:24:16 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 154
+[20-Aug-2014 09:24:16 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 160
+[20-Aug-2014 09:24:16 Europe/Moscow] PHP Notice:  Undefined index: device_answer in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 83
+[20-Aug-2014 09:24:16 Europe/Moscow] PHP Notice:  Undefined index: modem_id in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 87
+[20-Aug-2014 09:24:16 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 154
+[20-Aug-2014 09:24:16 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 160
+[20-Aug-2014 09:24:16 Europe/Moscow] PHP Notice:  Undefined index: device_answer in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 83
+[20-Aug-2014 09:24:16 Europe/Moscow] PHP Notice:  Undefined index: modem_id in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 87
+[20-Aug-2014 09:24:16 Europe/Moscow] PHP Notice:  Undefined index: modem_id in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 87
+[20-Aug-2014 09:24:16 Europe/Moscow] PHP Notice:  Undefined index: modem_id in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 87
+[20-Aug-2014 09:24:16 Europe/Moscow] PHP Notice:  Undefined index: modem_id in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 87
+[20-Aug-2014 09:24:16 Europe/Moscow] PHP Notice:  Undefined index: modem_id in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 87
+[20-Aug-2014 09:24:16 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 154
+[20-Aug-2014 09:24:16 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 160
+[20-Aug-2014 09:24:16 Europe/Moscow] PHP Notice:  Undefined index: device_answer in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 83
+[20-Aug-2014 09:24:16 Europe/Moscow] PHP Notice:  Undefined index: modem_id in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 87
+[20-Aug-2014 09:25:08 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 154
+[20-Aug-2014 09:25:08 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 160
+[20-Aug-2014 09:25:08 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 154
+[20-Aug-2014 09:25:09 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 160
+[20-Aug-2014 09:25:09 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 154
+[20-Aug-2014 09:25:09 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 160
+[20-Aug-2014 09:25:09 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 154
+[20-Aug-2014 09:25:09 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 160
+[20-Aug-2014 09:27:38 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 154
+[20-Aug-2014 09:27:38 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 160
+[20-Aug-2014 09:27:38 Europe/Moscow] PHP Notice:  Undefined index: device_answer in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 83
+[20-Aug-2014 09:27:38 Europe/Moscow] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 92
+[20-Aug-2014 09:27:38 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 154
+[20-Aug-2014 09:27:38 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 160
+[20-Aug-2014 09:27:38 Europe/Moscow] PHP Notice:  Undefined index: device_answer in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 83
+[20-Aug-2014 09:27:38 Europe/Moscow] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 92
+[20-Aug-2014 09:27:38 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 154
+[20-Aug-2014 09:27:38 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 160
+[20-Aug-2014 09:27:38 Europe/Moscow] PHP Notice:  Undefined index: device_answer in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 83
+[20-Aug-2014 09:27:38 Europe/Moscow] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 92
+[20-Aug-2014 09:27:38 Europe/Moscow] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 92
+[20-Aug-2014 09:27:38 Europe/Moscow] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 92
+[20-Aug-2014 09:27:38 Europe/Moscow] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 92
+[20-Aug-2014 09:27:38 Europe/Moscow] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 92
+[20-Aug-2014 09:27:38 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 154
+[20-Aug-2014 09:27:38 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 160
+[20-Aug-2014 09:27:38 Europe/Moscow] PHP Notice:  Undefined index: device_answer in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 83
+[20-Aug-2014 09:27:38 Europe/Moscow] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 92
+[20-Aug-2014 09:30:25 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 154
+[20-Aug-2014 09:30:25 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 160
+[20-Aug-2014 09:30:25 Europe/Moscow] PHP Notice:  Undefined index: device_answer in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 83
+[20-Aug-2014 09:30:25 Europe/Moscow] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 92
+[20-Aug-2014 09:30:25 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 154
+[20-Aug-2014 09:30:25 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 160
+[20-Aug-2014 09:30:25 Europe/Moscow] PHP Notice:  Undefined index: device_answer in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 83
+[20-Aug-2014 09:30:25 Europe/Moscow] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 92
+[20-Aug-2014 09:30:25 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 154
+[20-Aug-2014 09:30:25 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 160
+[20-Aug-2014 09:30:25 Europe/Moscow] PHP Notice:  Undefined index: device_answer in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 83
+[20-Aug-2014 09:30:25 Europe/Moscow] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 92
+[20-Aug-2014 09:30:25 Europe/Moscow] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 92
+[20-Aug-2014 09:30:25 Europe/Moscow] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 92
+[20-Aug-2014 09:30:25 Europe/Moscow] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 92
+[20-Aug-2014 09:30:25 Europe/Moscow] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 92
+[20-Aug-2014 09:30:25 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 154
+[20-Aug-2014 09:30:25 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 160
+[20-Aug-2014 09:30:25 Europe/Moscow] PHP Notice:  Undefined index: device_answer in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 83
+[20-Aug-2014 09:30:25 Europe/Moscow] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 92
+[20-Aug-2014 09:36:02 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 154
+[20-Aug-2014 09:36:02 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 160
+[20-Aug-2014 09:36:02 Europe/Moscow] PHP Notice:  Undefined index: device_answer in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 83
+[20-Aug-2014 09:36:02 Europe/Moscow] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 92
+[20-Aug-2014 09:36:02 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 154
+[20-Aug-2014 09:36:02 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 160
+[20-Aug-2014 09:36:02 Europe/Moscow] PHP Notice:  Undefined index: device_answer in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 83
+[20-Aug-2014 09:36:02 Europe/Moscow] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 92
+[20-Aug-2014 09:36:02 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 154
+[20-Aug-2014 09:36:02 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 160
+[20-Aug-2014 09:36:02 Europe/Moscow] PHP Notice:  Undefined index: device_answer in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 83
+[20-Aug-2014 09:36:02 Europe/Moscow] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 92
+[20-Aug-2014 09:36:02 Europe/Moscow] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 92
+[20-Aug-2014 09:36:02 Europe/Moscow] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 92
+[20-Aug-2014 09:36:02 Europe/Moscow] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 92
+[20-Aug-2014 09:36:02 Europe/Moscow] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 92
+[20-Aug-2014 09:36:02 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 154
+[20-Aug-2014 09:36:02 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 160
+[20-Aug-2014 09:36:02 Europe/Moscow] PHP Notice:  Undefined index: device_answer in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 83
+[20-Aug-2014 09:36:02 Europe/Moscow] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 92
+[20-Aug-2014 09:38:09 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 154
+[20-Aug-2014 09:38:09 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 160
+[20-Aug-2014 09:38:09 Europe/Moscow] PHP Notice:  Undefined index: device_answer in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 83
+[20-Aug-2014 09:38:09 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 154
+[20-Aug-2014 09:38:09 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 160
+[20-Aug-2014 09:38:09 Europe/Moscow] PHP Notice:  Undefined index: device_answer in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 83
+[20-Aug-2014 09:38:09 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 154
+[20-Aug-2014 09:38:10 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 160
+[20-Aug-2014 09:38:10 Europe/Moscow] PHP Notice:  Undefined index: device_answer in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 83
+[20-Aug-2014 09:38:10 Europe/Moscow] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 154
+[20-Aug-2014 09:38:10 Europe/Moscow] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 160
+[20-Aug-2014 09:38:10 Europe/Moscow] PHP Notice:  Undefined index: device_answer in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 83
+[20-Aug-2014 10:17:48 Europe/Moscow] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 181
+[20-Aug-2014 10:17:48 Europe/Moscow] PHP Warning:  date() expects parameter 2 to be long, string given in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 182
+[20-Aug-2014 10:17:48 Europe/Moscow] PHP Warning:  date() expects parameter 2 to be long, string given in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 183
+[20-Aug-2014 10:17:48 Europe/Moscow] PHP Warning:  date() expects parameter 2 to be long, string given in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 184
+[20-Aug-2014 10:17:58 Europe/Moscow] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 181
+[20-Aug-2014 10:17:58 Europe/Moscow] PHP Warning:  date() expects parameter 2 to be long, string given in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 182
+[20-Aug-2014 10:17:58 Europe/Moscow] PHP Warning:  date() expects parameter 2 to be long, string given in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 183
+[20-Aug-2014 10:17:58 Europe/Moscow] PHP Warning:  date() expects parameter 2 to be long, string given in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 184
+[20-Aug-2014 10:18:08 Europe/Moscow] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 181
+[20-Aug-2014 10:18:08 Europe/Moscow] PHP Warning:  date() expects parameter 2 to be long, string given in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 182
+[20-Aug-2014 10:18:08 Europe/Moscow] PHP Warning:  date() expects parameter 2 to be long, string given in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 183
+[20-Aug-2014 10:18:08 Europe/Moscow] PHP Warning:  date() expects parameter 2 to be long, string given in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 184
+[20-Aug-2014 10:18:18 Europe/Moscow] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 181
+[20-Aug-2014 10:18:18 Europe/Moscow] PHP Warning:  date() expects parameter 2 to be long, string given in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 182
+[20-Aug-2014 10:18:18 Europe/Moscow] PHP Warning:  date() expects parameter 2 to be long, string given in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 183
+[20-Aug-2014 10:18:18 Europe/Moscow] PHP Warning:  date() expects parameter 2 to be long, string given in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 184
+[20-Aug-2014 10:18:28 Europe/Moscow] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 181
+[20-Aug-2014 10:18:28 Europe/Moscow] PHP Warning:  date() expects parameter 2 to be long, string given in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 182
+[20-Aug-2014 10:18:28 Europe/Moscow] PHP Warning:  date() expects parameter 2 to be long, string given in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 183
+[20-Aug-2014 10:18:28 Europe/Moscow] PHP Warning:  date() expects parameter 2 to be long, string given in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 184
+[20-Aug-2014 10:18:38 Europe/Moscow] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 181
+[20-Aug-2014 10:18:38 Europe/Moscow] PHP Warning:  date() expects parameter 2 to be long, string given in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 182
+[20-Aug-2014 10:18:38 Europe/Moscow] PHP Warning:  date() expects parameter 2 to be long, string given in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 183
+[20-Aug-2014 10:18:38 Europe/Moscow] PHP Warning:  date() expects parameter 2 to be long, string given in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 184
+[20-Aug-2014 10:18:48 Europe/Moscow] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 181
+[20-Aug-2014 10:18:48 Europe/Moscow] PHP Warning:  date() expects parameter 2 to be long, string given in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 182
+[20-Aug-2014 10:18:48 Europe/Moscow] PHP Warning:  date() expects parameter 2 to be long, string given in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 183
+[20-Aug-2014 10:18:48 Europe/Moscow] PHP Warning:  date() expects parameter 2 to be long, string given in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 184
+[20-Aug-2014 10:18:58 Europe/Moscow] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 181
+[20-Aug-2014 10:18:58 Europe/Moscow] PHP Warning:  date() expects parameter 2 to be long, string given in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 182
+[20-Aug-2014 10:18:59 Europe/Moscow] PHP Warning:  date() expects parameter 2 to be long, string given in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 183
+[20-Aug-2014 10:18:59 Europe/Moscow] PHP Warning:  date() expects parameter 2 to be long, string given in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 184
+[20-Aug-2014 10:19:09 Europe/Moscow] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 181
+[20-Aug-2014 10:19:09 Europe/Moscow] PHP Warning:  date() expects parameter 2 to be long, string given in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 182
+[20-Aug-2014 10:19:09 Europe/Moscow] PHP Warning:  date() expects parameter 2 to be long, string given in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 183
+[20-Aug-2014 10:19:09 Europe/Moscow] PHP Warning:  date() expects parameter 2 to be long, string given in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 184
+[20-Aug-2014 10:19:19 Europe/Moscow] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 181
+[20-Aug-2014 10:19:29 Europe/Moscow] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 181
+[20-Aug-2014 10:19:34 Europe/Moscow] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 181
+[20-Aug-2014 10:19:44 Europe/Moscow] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 181
+[20-Aug-2014 10:19:55 Europe/Moscow] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 181
+[20-Aug-2014 10:19:59 Europe/Moscow] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 181
+[20-Aug-2014 10:20:09 Europe/Moscow] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 181
+[20-Aug-2014 10:20:19 Europe/Moscow] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 181
+[20-Aug-2014 10:20:29 Europe/Moscow] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 181
+[20-Aug-2014 10:20:39 Europe/Moscow] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 181
+[20-Aug-2014 10:20:49 Europe/Moscow] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 181
+[20-Aug-2014 10:20:59 Europe/Moscow] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 181
+[20-Aug-2014 10:21:09 Europe/Moscow] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 181
+[20-Aug-2014 10:21:19 Europe/Moscow] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 181
+[20-Aug-2014 10:21:29 Europe/Moscow] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 181
+[20-Aug-2014 10:21:39 Europe/Moscow] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 181
+[20-Aug-2014 10:21:49 Europe/Moscow] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 181
+[20-Aug-2014 10:21:59 Europe/Moscow] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 181
+[20-Aug-2014 10:22:09 Europe/Moscow] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 181
+[20-Aug-2014 10:22:19 Europe/Moscow] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 181
+[20-Aug-2014 10:22:28 Europe/Moscow] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 181
+[20-Aug-2014 10:22:38 Europe/Moscow] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 181
+[20-Aug-2014 10:22:48 Europe/Moscow] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 181
+[20-Aug-2014 10:22:58 Europe/Moscow] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 181
+[20-Aug-2014 10:23:08 Europe/Moscow] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 181
+[20-Aug-2014 10:23:18 Europe/Moscow] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 181
+[20-Aug-2014 10:23:28 Europe/Moscow] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 181
+[20-Aug-2014 10:23:38 Europe/Moscow] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 181
+[20-Aug-2014 10:25:28 Europe/Moscow] PHP Warning:  date() expects parameter 2 to be long, string given in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 182
+[20-Aug-2014 10:26:10 Europe/Moscow] PHP Warning:  date() expects parameter 2 to be long, string given in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 182
+[20-Aug-2014 10:28:15 Europe/Moscow] PHP Warning:  date() expects parameter 2 to be long, string given in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 182
+[20-Aug-2014 10:37:30 Europe/Moscow] PHP Warning:  date() expects parameter 2 to be long, string given in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 182

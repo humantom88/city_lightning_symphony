@@ -11,6 +11,10 @@ class Daemon {
     // Здесь будем хранить запущенные дочерние процессы
     protected $currentJobs = array();
     
+    private $commandSwitchOn = "5492 out3 pulse2";
+    
+    private $commandSwitchOff = "5492 out3 pulse2";
+    
     private $gammuPath;
     
     public $db;
@@ -73,7 +77,22 @@ class Daemon {
                 if($newMessage['sms_text']) {
                     $res = $this->parseModemAns($newMessage['sms_text']);
                     if (!empty($res)) {
-                        file_put_contents('c:\\log\\log.txt', print_r($res),FILE_APPEND);	
+                        if (empty($this->db)) {
+                            $this->setDbConnection();
+                        }
+                        $sql = "UPDATE `mmanager`.`modems` SET `modem_status`=:modem_status, `last_update`=:last_update WHERE `modem_phone`=:sms_from";
+                        $result = $this->db->prepare($sql);
+                        
+                        echo "Device Answer: ";
+                        print_r($res['device_answer']);
+                        echo "Last Update: ";
+                        print_r(date('Y-m-d H:i:s'));
+                        echo "New Message: ";
+                        print_r($newMessage);
+                        $result->bindParam(':modem_status', $res['device_answer']);
+                        $result->bindParam(':last_update', date('Y-m-d H:i:s'));
+                        $result->bindParam(':sms_from', $newMessage['sms_from']);
+                        $result->execute();
                     }
                 }
             }
@@ -162,15 +181,32 @@ class Daemon {
 	    print_r($data);
 	    foreach ($data as $v) {
                 if ($v['modem_phone']) {
-		    $now = getdate(date('Y-m-d-h-m-s'));
-		    $timeblock_date = date($v['timeblock_date'],'Y-m-d');
-		    $timeblock_starttime = date($v['timeblock_starttime'],'h:m');
-		    $timeblock_endtime = date($v['timeblock_endtime'], 'h:m');
-		    
+		    $now = getdate();
+                    $timeblock_date = getdate(strtotime($v['timeblock_date']));
+                    $timeblock_starttime = getdate(strtotime($v['timeblock_starttime']));
+                    $timeblock_endtime = getdate(strtotime($v['timeblock_endtime']));
+
+                    if ($now['year'] == $timeblock_date['year'] &&
+                        $now['mon'] == $timeblock_date['mon'] &&
+                        $now['mday'] == $timeblock_date['mday']) {
+                        if ($now['hours'] == $timeblock_starttime['hours'] && $now['minutes'] == $timeblock_starttime['minutes']) {
+                            $this->sendSMS($v['modem_phone'], $this->commandSwitchOn);
+                        }
+                        if ($now['hours'] == $timeblock_endtime['hours'] && $now['minutes'] == $timeblock_endtime['minutes']) {
+                            $this->sendSMS($v['modem_phone'], $this->commandSwitchOff);
+                        }
+                    }
+
+                    print_r($timeblock_date);
+                    print_r($timeblock_starttime);
+                    print_r($timeblock_endtime);
+		    //$timeblock_starttime = date($v['timeblock_starttime'],'h:m');
+		    //$timeblock_endtime = date($v['timeblock_endtime'], 'h:m');
+
 		    print_r($now);
-		    print_r($timeblock_date);
-		    print_r($timeblock_starttime);
-		    print_r($timeblock_endtime);
+		    //print_r($timeblock_date);
+		    //print_r($timeblock_starttime);
+		    //print_r($timeblock_endtime);
 
 		    if (date('Y-m-d')==$v['timeblock_date'] && date('h-m')==$v['timeblock_starttime']) {
 			echo 'Sending SwitchOn SMS';
@@ -186,7 +222,7 @@ class Daemon {
     
     protected function launchJob() { 
         call_user_method('loopCycle', $this);
-        sleep(10);
+        sleep(31);
         return TRUE; 
     }
 
@@ -231,5 +267,14 @@ class Daemon {
 	$matches['sms_text'] = file_get_contents($filepath);
     
 	return $matches;	
+    }
+    
+    public function sendSMS($phone, $smsText) {
+        file_put_contents($this->getOutboxPath().'OUT'. $phone . '.txt', $smsText);
+    }
+    
+    public function getOutboxPath() {
+        print_r($this->gammuPath . '\\outbox\\');
+        return $this->gammuPath . "\\outbox\\";
     }
 }
