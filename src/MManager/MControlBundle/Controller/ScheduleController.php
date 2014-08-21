@@ -10,6 +10,7 @@ use MManager\MControlBundle\Entity\TimeblockEnquiry;
 use MManager\MControlBundle\Form\ScheduleEnquiryType;
 use MManager\MControlBundle\Form\TimeblockEnquiryType;
 use MManager\MControlBundle\Entity\Document;
+use MManager\MControlBundle\Classes\ExcelReader;
 use DateTime;
 use DateTimeZone;
 
@@ -149,7 +150,7 @@ class ScheduleController extends Controller
         return $this->redirect($this->generateUrl('MManagerMControlBundle_schedule_showAll'));
     }
 
-    public function uploadAction()
+    public function uploadAction($id)
     {
         $document = new Document();
         $form = $this->createFormBuilder($document)
@@ -162,14 +163,29 @@ class ScheduleController extends Controller
             }
             if ($form->isValid()) {
                 $em = $this->getDoctrine()->getEntityManager();
-                $result = $form->getData();
-                //print_r($result->getFile());
                 $em->persist($document);
                 $em->flush();
 
-                return $this->redirect($this->generateUrl('MManagerMControlBundle_schedule_showAll'));
+                $result = $form->getData();
+
+                $phpExcelObject = $this->get('phpexcel')->createPHPExcelObject($result->getAbsolutePath());
+                $schedule = $phpExcelObject->getActiveSheet()->toArray(null,true,true,true);
+
+                foreach($schedule as $row)
+                {
+                    $newTimeblock = new Timeblock();
+                    $newTimeblock->setTimeblockDate(strtotime($row['A']));
+                    $newTimeblock->setTimeblockStarttime(strtotime($row['A'] . " " . $row['B']));
+                    $newTimeblock->setTimeblockEndtime(strtotime($row['A'] . " " . $row['C']));
+                    $newTimeblock->setScheduleId($schedule = $em->getRepository('MManagerMControlBundle:Schedule')->find($id));
+                    print_r ($id);
+                    $em->persist($newTimeblock);
+                    $em->flush();
+                }
+                //return $this->redirect($this->generateUrl('MManagerMControlBundle_schedule_showAll'));
             }
-        }
+        } else {
         return $this->redirect($this->generateUrl('MManagerMControlBundle_schedule_showAll',array ('form_upload' => $form->createView())));
+        }
     }
 }

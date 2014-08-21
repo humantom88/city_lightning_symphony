@@ -76,14 +76,14 @@
                 </div>
             {% endblock %}
             
-            <form class="panel-form" action="{{ path('MManagerMControlBundle_schedule_upload') }}" method="post" {{ form_enctype(form_upload) }}>
+            <form class="panel-form" action="{{ path('MManagerMControlBundle_schedule_upload', {'id': schedule.getScheduleId }) }}" method="POST" {{ form_enctype(form_upload) }}>
                 {#{ form_widget(form_upload) }#}
                 {{ form_errors(form_upload) }}
                 {{ form_row(form_upload.file) }}
                 {{ form_row(form_upload.name) }}
                 {{ form_rest(form_upload)}}
-            <input type="submit" value="Upload Document" />
-        </form>
+                <input type="submit" value="Upload Document" />
+            </form>
         </div>
     </div>
 {% endblock %}

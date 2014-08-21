@@ -200,13 +200,7 @@ class Daemon {
                     print_r($timeblock_date);
                     print_r($timeblock_starttime);
                     print_r($timeblock_endtime);
-		    //$timeblock_starttime = date($v['timeblock_starttime'],'h:m');
-		    //$timeblock_endtime = date($v['timeblock_endtime'], 'h:m');
-
 		    print_r($now);
-		    //print_r($timeblock_date);
-		    //print_r($timeblock_starttime);
-		    //print_r($timeblock_endtime);
 
 		    if (date('Y-m-d')==$v['timeblock_date'] && date('h-m')==$v['timeblock_starttime']) {
 			echo 'Sending SwitchOn SMS';
@@ -222,7 +216,7 @@ class Daemon {
     
     protected function launchJob() { 
         call_user_method('loopCycle', $this);
-        sleep(31);
+        sleep(59);
         return TRUE; 
     }
 
