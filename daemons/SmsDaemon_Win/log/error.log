@@ -436,3 +436,15 @@ Stack trace:
 [20-Aug-2014 10:26:10 Europe/Moscow] PHP Warning:  date() expects parameter 2 to be long, string given in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 182
 [20-Aug-2014 10:28:15 Europe/Moscow] PHP Warning:  date() expects parameter 2 to be long, string given in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 182
 [20-Aug-2014 10:37:30 Europe/Moscow] PHP Warning:  date() expects parameter 2 to be long, string given in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 182
+[21-Aug-2014 07:57:18 Europe/Moscow] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [2002] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение.
+' in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php:28
+Stack trace:
+#0 C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php(28): PDO->__construct('mysql:host=loca...', 'root', '')
+#1 C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php(171): Daemon->setDbConnection()
+#2 C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php(68): Daemon->checkSchedule()
+#3 [internal function]: Daemon->loopCycle()
+#4 C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php(224): call_user_method('loopCycle', Object(Daemon))
+#5 C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php(39): Daemon->launchJob()
+#6 C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\run.php(18): Daemon->run()
+#7 {main}
+  thrown in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 28

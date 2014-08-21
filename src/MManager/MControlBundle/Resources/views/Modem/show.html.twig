@@ -25,27 +25,27 @@
             <tr>
                 <td>Серийный номер устройства</td>
                 <td>{{ modem.getModemSerial }}</td>
-                <td>{{ form_row(form.modem_serial) }}</td>
+                <td>{{ form_row(form.modem_serial, { value : modem.getModemSerial }) }}</td>
             </tr>
             <tr>
                 <td>Номер телефона</td>
                 <td>{{ modem.getModemPhone }}</td>
-                <td>{{ form_row(form.modem_phone) }}</td>
+                <td>{{ form_row(form.modem_phone, { value : modem.getModemPhone }) }}</td>
             </tr>
             <tr>
                 <td>Расписание</td>
-                <td>{{ modem.getScheduleId }}</td>
+                <td>{{ modem.getScheduleId ? modem.getScheduleId.getScheduleName }}</td>
                 <td>{{ form_row(form.schedule) }}</td>
             </tr>
             <tr>
                 <td>Группа</td>
-                <td>{{ modem.getModemGroupId }}</td>
+                <td>{{ modem.getModemGroupId ? modem.getModemGroupId.getModemGroupName }}</td>
                 <td>{{ form_row(form.modem_group) }}</td>
             </tr>
             <tr class="location">
                 <td>Местонахождение</td>
                 <td>{{ modem.getModemLocation }}</td>
-                <td>{{ form_row(form.modem_location) }}</td>
+                <td>{{ form_row(form.modem_location, { value : modem.getModemLocation }) }}</td>
             </tr>
             <tr><td><button type="submit" class="btn btn-primary">Сохранить изменения</button></td></tr>
         </table>

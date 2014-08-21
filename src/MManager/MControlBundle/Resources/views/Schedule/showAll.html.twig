@@ -44,7 +44,7 @@
         <tbody id="modems">
             <form>
             {% for schedule in schedules %}
-                <tr class="activeRowSchedule" id="{{ schedule.getScheduleId}}" action="/schedulelist/{{ schedule.getScheduleId }}" onselectstart="return false">
+                <tr class="activeRowSchedule" id="{{ schedule.getScheduleId}}" action="/schedulelist/" onselectstart="return false">
                     <td style="width: 16px;"><input type="checkbox" name="checkmodems" class="checker" id="{{ schedule.getScheduleId }}"></td>
                     <td style="width: 50px;">{{ schedule.getScheduleId }}</td>
                     <td>{{ schedule.getScheduleName }}</td>

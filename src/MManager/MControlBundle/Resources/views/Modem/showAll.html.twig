@@ -19,12 +19,13 @@
                 <th>Статус</th>
                 <th>Последнее обновление</th>
                 <th>Группа</th>
+                <th>Расписание</th>
             </tr>
         </thead>
         <tbody id="modems">
             <form>
             {% for modem in modems %}
-                <tr class="activeRowModem" id="{{ modem.getModemId}}" action="/modemlist/{{ modem.getModemId }}" onselectstart="return false">
+                <tr class="activeRowModem" id="{{ modem.getModemId }}" action="/modemlist/" onselectstart="return false">
                     <td><input type="checkbox" name="checkmodems" class="checker" id="{{ modem.getModemId }}"></td>
                     <td>{{ modem.getModemId }}</td>
                     <td>{{ modem.getModemSerial }}</td>
@@ -32,7 +33,8 @@
                     <td>{{ modem.getModemLocation }}</td>
                     <td class="modem_status">{{ modem.getModemStatus }}</td>
                     <td>{{ modem.getLastUpdate|date('Y-m-d H:i:s') }}</td>
-                    <td></td>
+                    <td>{{ modem.getModemGroupId ? modem.getModemGroupId.getModemGroupName }}</td>
+                    <td>{{ modem.getScheduleId ? modem.getScheduleId.getScheduleName }}</td>
                 </tr>
             {% endfor%}
             </form>

@@ -31,7 +31,7 @@
                 </tr>
             {% endfor%}
 
-            <form action="{{ path('MManagerMControlBundle_schedule_show' , {'id': schedule.getScheduleId}) }}" method="post" {{ form_enctype(form) }} class="timeblock">
+            <form action="{{ path('MManagerMControlBundle_schedule_show' , {'id': schedule.getScheduleId }) }}" method="post" {{ form_enctype(form) }} class="timeblock">
                 <tr action="/timeblockslist/" onselectstart="return false">
                     {{ form_errors(form) }}
                     <td>

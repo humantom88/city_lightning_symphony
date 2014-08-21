@@ -44,7 +44,7 @@ class ModemController extends Controller
                     $modem->setScheduleId($em->getRepository('MManagerMControlBundle:Schedule')->find($data->getModemSchedule()));
                 }
                 if ($data->getModemGroup()) {
-                    //$modem->setModemGroupId($em->getRepository('MManagerMControlBundle:ModemGroup')->find($data->getModemGroup()));
+                    $modem->setModemGroupId($em->getRepository('MManagerMControlBundle:ModemGroup')->find($data->getModemGroup()));
                 }
                 
                 $em->flush();
