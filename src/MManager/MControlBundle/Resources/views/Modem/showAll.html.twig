@@ -90,3 +90,8 @@
         </div>
     </div>
 {% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('bundles/modemmanager/js/MainForm/UpdatePage.js') }}" type="text/javascript"></script>
+{% endblock %}

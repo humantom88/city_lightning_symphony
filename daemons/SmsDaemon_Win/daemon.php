@@ -17,15 +17,29 @@ class Daemon {
     
     private $gammuPath;
     
+    private $dbhost;
+    
+    private $dbuser;
+    
+    private $dbpassword;
+    
+    private $dbname;
+    
     public $db;
+    
 
-    public function __construct($gammuPath = "") {
+    public function __construct($gammuPath = "", $dbhost = "localhost", $dbname = "mmanager", $dbuser = "root", $dbpassword = "") {
         $this->gammuPath = $gammuPath;
+        $this->dbhost = $dbhost;
+        $this->dbname = $dbname;
+        $this->dbuser = $dbuser;
+        $this->dbpassword = $dbpassword;
+
         echo "Constructed daemon controller".PHP_EOL;
     }
 
     public function setDbConnection() {
-	$this->db = new PDO('mysql:host=localhost;dbname=mmanager','root','');
+	$this->db = new PDO("mysql:host=$this->dbhost;dbname=$this->dbname",$this->dbuser,$this->dbpassword);
 	$this->db->exec('SET NAMES utf8');	
     }
 
@@ -49,7 +63,7 @@ class Daemon {
                 if (empty($newMessage['sms_from'])) {
                     if (!$this->db) {
                         $this->setDbConnection();
-                        $sql = "SELECT `modem_id` FROM `mmanager`.`modems` WHERE `modem_phone`=:modem_from";
+                        $sql = "SELECT `modem_id` FROM `$this->dbname`.`modems` WHERE `modem_phone`=:modem_from";
                         $result = $this->db->prepare($sql);
                         $result->bindParam(':modem_from', $newMessages['sms_from']);
                         $result->execute();
@@ -80,7 +94,7 @@ class Daemon {
                         if (empty($this->db)) {
                             $this->setDbConnection();
                         }
-                        $sql = "UPDATE `mmanager`.`modems` SET `modem_status`=:modem_status, `last_update`=:last_update WHERE `modem_phone`=:sms_from";
+                        $sql = "UPDATE `$this->dbname`.`modems` SET `modem_status`=:modem_status, `last_update`=:last_update WHERE `modem_phone`=:sms_from";
                         $result = $this->db->prepare($sql);
                         
                         echo "Device Answer: ";
@@ -104,7 +118,7 @@ class Daemon {
         if (!$this->db) {
             $this->setDbConnection();
         }
-        $sql = "SELECT * FROM `mmanager`.`modems` WHERE `modem_phone`=:modem_phone";
+        $sql = "SELECT * FROM `$this->dbname`.`modems` WHERE `modem_phone`=:modem_phone";
         $result = $this->db->prepare($sql);
         $result->bindParam(':modem_phone', $modemPhone);
         $result->execute();
@@ -118,8 +132,8 @@ class Daemon {
 	$this->setDbConnection();
         $modem_id = "";
         
-        $sql1 = "INSERT INTO `mmanager`.`smsmessages` (`sms_text`, `sms_from`, `sms_sentdate`) VALUES (:smsText, :smsFrom, :smsSentDate)";
-        $sql2 = "INSERT INTO `mmanager`.`smsmessages` (`modem_id`, `sms_text`, `sms_from`, `sms_sentdate`) VALUES (:modem_id, :smsText, :smsFrom, :smsSentDate)";
+        $sql1 = "INSERT INTO `$this->dbname`.`smsmessages` (`sms_text`, `sms_from`, `sms_sentdate`) VALUES (:smsText, :smsFrom, :smsSentDate)";
+        $sql2 = "INSERT INTO `$this->dbname`.`smsmessages` (`modem_id`, `sms_text`, `sms_from`, `sms_sentdate`) VALUES (:modem_id, :smsText, :smsFrom, :smsSentDate)";
         foreach ($newMessages as $newMessage) {
             
             if (!empty($newMessage['sms_from'])) {

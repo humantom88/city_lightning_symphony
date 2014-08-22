@@ -13,6 +13,6 @@ $baseDir = dirname(__FILE__);
 
 ini_set('error_log',$baseDir.'\log\error.log');
 $config = parse_ini_file($baseDir . '\\config\\config.ini');
-$daemon = new Daemon($config['gammupath']);
+$daemon = new Daemon($config['gammupath'], $config['dbhost'], $config['dbname'], $config['dbuser'], $config['dbpassword']);
 echo "Starting Daemon...";
 $daemon->run();

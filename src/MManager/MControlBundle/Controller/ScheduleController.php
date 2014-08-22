@@ -178,21 +178,20 @@ class ScheduleController extends Controller
                     $newDateTime = new DateTime();
                     $newDateTime->setTimestamp(strtotime($row['A']));
                     $newTimeblock->setTimeblockDate($newDateTime);
-                    echo $row['A'] . ' ';
                     $newDateTime = new DateTime();
                     $newDateTime->setTimestamp(strtotime($row['A'] . " " . $row['B']));
                     $newTimeblock->setTimeblockStarttime($newDateTime);
-                    echo $row['B'] . ' '; 
                     $newDateTime = new DateTime();
                     $newDateTime->setTimestamp(strtotime($row['A'] . " " . $row['C']));
                     $newTimeblock->setTimeblockEndtime($newDateTime);
-                    echo $row['C'] . '<br>';
                     $newTimeblock->setScheduleId($em->getRepository('MManagerMControlBundle:Schedule')->find($id));
                     
                     $em->persist($newTimeblock);
                     $em->flush();
                     
                 }
+                $em->remove($document);
+                $em->flush();
                 return $this->redirect($this->generateUrl('MManagerMControlBundle_schedule_show', array('id' => $id)));
             }
         } else {
