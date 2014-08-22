@@ -32,7 +32,7 @@ class ModemGroupController extends Controller
             'id'              => $id
         ));
     }
-    
+
     public function showAllAction()
     {
         $enquiry = new ModemGroupEnquiry();
@@ -68,7 +68,7 @@ class ModemGroupController extends Controller
             'form' => $form->createView(),
         ));        
     }
-    
+
     public function sendSMSAction()
     {
         $gammu = new Gammu([
@@ -88,7 +88,7 @@ class ModemGroupController extends Controller
         }
         return $this->showAllAction();
     }
-    
+
     public function deleteModemGroupAction()
     {
         $request = $this->getRequest();

@@ -50,6 +50,7 @@ class ScheduleController extends Controller
                 $timeblock_starttime = $timeblock_date + strtotime($data->getTimeblockStarttime()->format('Y-m-d H:i'));
                 $newDateTime->setTimestamp($timeblock_starttime);
                 $newTimeblock->setTimeblockStarttime($newDateTime->add(date_interval_create_from_date_string('3 hours')));
+                
                 $newDateTime = new DateTime();
                 $timeblock_endtime = $timeblock_date + strtotime($data->getTimeblockEndtime()->format('Y-m-d H:i'));
                 $newDateTime->setTimestamp($timeblock_endtime);
@@ -170,22 +171,32 @@ class ScheduleController extends Controller
 
                 $phpExcelObject = $this->get('phpexcel')->createPHPExcelObject($result->getAbsolutePath());
                 $schedule = $phpExcelObject->getActiveSheet()->toArray(null,true,true,true);
-
+                
                 foreach($schedule as $row)
                 {
                     $newTimeblock = new Timeblock();
-                    $newTimeblock->setTimeblockDate(strtotime($row['A']));
-                    $newTimeblock->setTimeblockStarttime(strtotime($row['A'] . " " . $row['B']));
-                    $newTimeblock->setTimeblockEndtime(strtotime($row['A'] . " " . $row['C']));
-                    $newTimeblock->setScheduleId($schedule = $em->getRepository('MManagerMControlBundle:Schedule')->find($id));
-                    print_r ($id);
+                    $newDateTime = new DateTime();
+                    $newDateTime->setTimestamp(strtotime($row['A']));
+                    $newTimeblock->setTimeblockDate($newDateTime);
+                    echo $row['A'] . ' ';
+                    $newDateTime = new DateTime();
+                    $newDateTime->setTimestamp(strtotime($row['A'] . " " . $row['B']));
+                    $newTimeblock->setTimeblockStarttime($newDateTime);
+                    echo $row['B'] . ' '; 
+                    $newDateTime = new DateTime();
+                    $newDateTime->setTimestamp(strtotime($row['A'] . " " . $row['C']));
+                    $newTimeblock->setTimeblockEndtime($newDateTime);
+                    echo $row['C'] . '<br>';
+                    $newTimeblock->setScheduleId($em->getRepository('MManagerMControlBundle:Schedule')->find($id));
+                    
                     $em->persist($newTimeblock);
                     $em->flush();
+                    
                 }
-                //return $this->redirect($this->generateUrl('MManagerMControlBundle_schedule_showAll'));
+                return $this->redirect($this->generateUrl('MManagerMControlBundle_schedule_show', array('id' => $id)));
             }
         } else {
-        return $this->redirect($this->generateUrl('MManagerMControlBundle_schedule_showAll',array ('form_upload' => $form->createView())));
+            return $this->redirect($this->generateUrl('MManagerMControlBundle_schedule_showAll',array ('form_upload' => $form->createView())));
         }
     }
 }
