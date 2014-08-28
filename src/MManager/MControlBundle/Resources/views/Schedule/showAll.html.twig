@@ -36,7 +36,7 @@
     <table class="table" id="tsorter">
         <thead>
             <tr>
-                <th>#</th>
+                <th></th>
                 <th>id</th>
                 <th>Schedule Name</th>
             </tr>
@@ -58,11 +58,11 @@
 {% block sidebar %}
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h3 class="panel-title">Администрирование</h3>
+            <h3 class="panel-title">Редактор</h3>
         </div>
         <div class="panel-body">
-            <div class="btn btn-default" id="addnewmodem" style="margin-bottom: 15px;" data-toggle="modal" data-target="#myModal">Добавить расписание</div>
-            <button class="btn btn-default" id="deletemodem" action="{{ path('MManagerMControlBundle_schedule_delete') }}">Удалить выделенные</button>
+            <div class="btn btn-default" id="addnewmodem" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-plus"></span> Добавить</div><br><br>
+            <button class="btn btn-default" id="deletemodem" action="{{ path('MManagerMControlBundle_schedule_delete') }}"><span class="glyphicon glyphicon-trash"></span> Удалить</button>
         </div>
     </div>
     <!-- Modal -->

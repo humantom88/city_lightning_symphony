@@ -460,3 +460,4 @@ Stack trace:
 #6 C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\run.php(18): Daemon->run()
 #7 {main}
   thrown in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 28
+[28-Aug-2014 11:33:03 Europe/Moscow] PHP Warning:  Missing argument 6 for Daemon::__construct(), called in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\run.php on line 16 and defined in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 33

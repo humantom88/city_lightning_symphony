@@ -45,11 +45,11 @@
 {% block sidebar %}
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h3 class="panel-title">Администрирование</h3>
+            <h3 class="panel-title">Редактор</h3>
         </div>
         <div class="panel-body">
-            <div class="btn btn-default" id="addnewmodem" style="margin-bottom: 15px;" data-toggle="modal" data-target="#myModal">Добавить модем</div>
-            <button class="btn btn-default" id="deletemodem" action="{{ path('MManagerMControlBundle_modem_deletemodem') }}">Удалить выделенные</button>
+            <div class="btn btn-default" id="addnewmodem" style="margin-bottom: 15px;" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-plus"></span> Добавить</div><br>
+            <button class="btn btn-default" id="deletemodem" action="{{ path('MManagerMControlBundle_modem_deletemodem') }}"><span class="glyphicon glyphicon-trash"></span> Удалить</button> 
         </div>
     </div>
     
@@ -59,7 +59,7 @@
         </div>
         <div class="panel-body">
             <button class="btn btn-default" id="sendsms" action="{{ path('MManagerMControlBundle_modem_sendsms') }}">
-                Отправить SMS
+                <span class="glyphicon glyphicon-envelope"></span> Отправить SMS
             </button>
         </div>
     </div>

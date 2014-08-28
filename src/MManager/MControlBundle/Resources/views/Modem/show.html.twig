@@ -51,5 +51,34 @@
         </table>
         {{ form_rest(form) }}
     </form>
-        
+
+    <hr>
+
+    <h1>История состояний модема</h1>
+    
+    <table class="table modemstatus" id="tsorter">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Дата</th>
+                <th>Текст сообщения</th>
+            </tr>
+        </thead>
+        <tbody id="modems">
+            <form>
+            {% for message in messages %}
+                <tr onselectstart="return false">
+                    <td>{{ message.getSmsId }}</td>
+                    <td>{{ message.getSmsSentdate|date('Y-m-d') }}</td>
+                    <td class="smstext">{{ message.getSmsText }}</td>
+                </tr>
+            {% endfor%}
+            </form>
+        </tbody>
+    </table>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('bundles/modemmanager/js/MainForm/RenderStatus.js') }}" type="text/javascript"></script>
 {% endblock %}

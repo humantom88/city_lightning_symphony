@@ -20,7 +20,7 @@ class ModemGroupController extends Controller
     public function showAction($id)
     {
         $em = $this->getDoctrine()->getManager();
-
+        $modems = $em->getRepository('MManagerMControlBundle:Modem')->findBy(array('modem_group_id' => $id));
         $modemgroup = $em->getRepository('MManagerMControlBundle:ModemGroup')->find($id);
 
         if (!$modemgroup) {
@@ -28,6 +28,7 @@ class ModemGroupController extends Controller
         }
 
         return $this->render('MManagerMControlBundle:ModemGroup:show.html.twig', array(
+            'modems'          => $modems,
             'modemgroup'      => $modemgroup,
             'id'              => $id
         ));

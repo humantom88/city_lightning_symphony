@@ -13,7 +13,7 @@
     <table class="table" id="tsorter">
         <thead>
             <tr>
-                <th style="text-align: center;">#</th>
+                <th style="text-align: center;"><input type="checkbox" name="checkall" id="checkall"></th>
                 <th>ID</th>
                 <th>День</th>
                 <th>Время включения</th>
@@ -36,7 +36,7 @@
                     {{ form_errors(form) }}
                     <td>
                         <div class="modal-footer" style="margin-top: 0px; padding: 0px; text-align:center; border: none;">
-                            <button type="submit" id="addstring" class="btn btn-primary">+</button>
+                            <button type="submit" id="addstring" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span></button>
                         </div>
                     </td>
                     <td>...</td>
@@ -54,10 +54,10 @@
 {% block sidebar %}
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h3 class="panel-title">Main</h3>
+            <h3 class="panel-title">Редактор</h3>
         </div>
         <div class="panel-body">
-            <button class="btn btn-default" id="deletemodem" action="{{ path('MManagerMControlBundle_schedule_deletetimeblock') }}">Удалить выделенные</button>
+            <button class="btn btn-default" id="deletemodem" action="{{ path('MManagerMControlBundle_schedule_deletetimeblock') }}"><span class="glyphicon glyphicon-trash"></span> Удалить выделенные</button>
         </div>
         <div class="panel-body form-class">
             {% form_theme form_upload _self %}
@@ -79,10 +79,17 @@
             <form class="panel-form" action="{{ path('MManagerMControlBundle_schedule_upload', {'id': schedule.getScheduleId }) }}" method="POST" {{ form_enctype(form_upload) }}>
                 {#{ form_widget(form_upload) }#}
                 {{ form_errors(form_upload) }}
-                {{ form_row(form_upload.file) }}
-                {{ form_row(form_upload.name) }}
+                <div class="upload-form-button">
+                    {{ form_row(form_upload.file , {'label': 'Загрузить из файла'}) }}
+                </div>
+                <br>
+                <div class="invisible-form">
+                    {{ form_row(form_upload.name , {'value': 'tempfile'}) }}
+                </div>
                 {{ form_rest(form_upload)}}
-                <input type="submit" value="Upload Document" />
+                <div class="upload-form-button">
+                    <input type="submit" value="Upload Document" />
+                </div>
             </form>
         </div>
     </div>

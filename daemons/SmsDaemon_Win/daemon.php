@@ -1,7 +1,7 @@
 <?php
 //ATM2-485,TEST:IN2,11:13:57
 // Без этой директивы PHP не будет перехватывать сигналы
-declare(ticks=1); 
+require_once 'daemonLogger.php';
 
 class Daemon {
     // Максимальное количество дочерних процессов
@@ -10,6 +10,8 @@ class Daemon {
     protected $stop_server = FALSE;
     // Здесь будем хранить запущенные дочерние процессы
     protected $currentJobs = array();
+    
+    protected $logger;
     
     private $commandSwitchOn = "5492 out3 pulse2";
     
@@ -28,13 +30,13 @@ class Daemon {
     public $db;
     
 
-    public function __construct($gammuPath = "", $dbhost = "localhost", $dbname = "mmanager", $dbuser = "root", $dbpassword = "") {
+    public function __construct($gammuPath = "", $dbhost = "localhost", $dbname = "mmanager", $dbuser = "root", $dbpassword = "", $logFilePath) {
         $this->gammuPath = $gammuPath;
         $this->dbhost = $dbhost;
         $this->dbname = $dbname;
         $this->dbuser = $dbuser;
         $this->dbpassword = $dbpassword;
-
+        $this->logger = new DaemonLogger($logFilePath);
         echo "Constructed daemon controller".PHP_EOL;
     }
 
@@ -68,7 +70,7 @@ class Daemon {
                         $result->bindParam(':modem_from', $newMessages['sms_from']);
                         $result->execute();
                         $mid = $result->fetch();
-                        print_r ($mid);
+
                         if ($mid) {
                             $newMessages[$k] = $mid['modem_id'];
                         }
@@ -80,7 +82,6 @@ class Daemon {
 	}
 	//Блок 2 Рассылка по расписанию
 	$this->checkSchedule();
-
     }
     
     private function updateModemStatus ($newMessages = "")
@@ -240,6 +241,9 @@ class Daemon {
 	    while(false !== ($file = readdir($handle))) {
 		if ($file != '.' && $file != '..') {
 		    array_push($files, $this->parseInboxFile($file, $inboxPath."/".$file));
+                    if (!file_exists($inboxPath . "/../archive/")) {
+                        mkdir($inboxPath . "/../archive/");
+                    }
 		    copy($inboxPath."/$file",$inboxPath . "/../archive/$file");
 	    	    unlink($inboxPath."/$file");
 		}

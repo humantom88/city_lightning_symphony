@@ -23,6 +23,7 @@ class ModemController extends Controller
         $modem = $em->getRepository('MManagerMControlBundle:Modem')->find($id);
         $modemgroups = $em->getRepository('MManagerMControlBundle:ModemGroup')->findAll();
         $schedules = $em->getRepository('MManagerMControlBundle:Schedule')->findAll();
+        $messages = $em->getRepository('MManagerMControlBundle:SmsMessage')->findBy(array('modem_id' => $id));
         $enquiry = new ModemEnquiry();
         $form = $this->createForm(new ModemEnquiryType($modemgroups, $schedules), $enquiry);
         $request = $this->getRequest();
@@ -57,6 +58,7 @@ class ModemController extends Controller
 
         return $this->render('MManagerMControlBundle:Modem:show.html.twig', array(
             'modem'      => $modem,
+            'messages'   => $messages,
             'form'       => $form->createView()
         ));
     }

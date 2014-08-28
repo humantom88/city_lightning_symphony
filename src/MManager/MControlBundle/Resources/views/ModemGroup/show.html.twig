@@ -5,10 +5,39 @@
 {% block body %}
     <article class="modemgroup">
         <header>
-            <h2>{{ modemgroup.getModemGroupName }}</h2>
+            <h2>Группа: {{ modemgroup.getModemGroupName }}</h2>
         </header>
-        <div>
-            
-        </div>
+        <h1>Список модемов в группе</h1>
+    
+        <table class="table modemstatus" id="tsorter">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Серийный номер</th>
+                    <th>Номер телефона</th>
+                    <th>Местонахождение</th>
+                    <th>Статус</th>
+                    <th>Последнее обновление</th>
+                    <th>Группа</th>
+                    <th>Расписание</th>
+                </tr>
+            </thead>
+            <tbody id="modems">
+                <form>
+                {% for modem in modems %}
+                    <tr onselectstart="return false">
+                        <td>{{ modem.getModemId }}</td>
+                        <td>{{ modem.getModemSerial }}</td>
+                        <td>{{ modem.getModemPhone }}</td>
+                        <td>{{ modem.getModemLocation }}</td>
+                        <td class="modem_status">{{ modem.getModemStatus }}</td>
+                        <td>{{ modem.getLastUpdate|date('Y-m-d H:i:s') }}</td>
+                        <td>{{ modem.getModemGroupId ? modem.getModemGroupId.getModemGroupName }}</td>
+                        <td>{{ modem.getScheduleId ? modem.getScheduleId.getScheduleName }}</td>
+                    </tr>
+                {% endfor%}
+                </form>
+            </tbody>
+        </table>
     </article>
 {% endblock %}
