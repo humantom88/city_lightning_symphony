@@ -81,7 +81,7 @@ class ModemGroupController extends Controller
         $request = $this->getRequest();
         $modemObjects = $request->request->get('ids');
         $em = $this->getDoctrine()->getManager();
-        $modems = $em->getRepository('MManagerMControlBundle:Modem')->findBy(array ('modem_id' => $request->request->get('ids')));
+        $modems = $em->getRepository('MManagerMControlBundle:Modem')->findBy(array ('modem_group_id' => $request->get('ids')));
         foreach ($modems as $modem) {
             $m = $modem->getModemAsArray();
             $gammu->sendSMS($m['modem_phone'], '5492 out3 pulse2');

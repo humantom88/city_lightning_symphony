@@ -22,6 +22,12 @@ MManagerMControlBundle_modemgroup_show:
     requirements:
         _method: GET|POST
         id: \d+
+
+MManagerMControlBundle_modemgroup_sendsms:
+    path:     /sendgroupsms/
+    defaults: { _controller: MManagerMControlBundle:ModemGroup:sendSMS }
+    requirements:
+            _method: GET|POST
         
 MManagerMControlBundle_modemgroup_showAll:
     path:     /modemgroupslist/
