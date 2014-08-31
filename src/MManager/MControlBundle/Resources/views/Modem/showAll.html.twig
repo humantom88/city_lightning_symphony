@@ -27,7 +27,7 @@
             {% for modem in modems %}
                 <tr class="activeRowModem" id="{{ modem.getModemId }}" action="/modemlist/" onselectstart="return false">
                     <td><input type="checkbox" name="checkmodems" class="checker" id="{{ modem.getModemId }}"></td>
-                    <td>{{ modem.getModemId }}</td>
+                    <td class="modem_id">{{ modem.getModemId }}</td>
                     <td>{{ modem.getModemSerial }}</td>
                     <td>{{ modem.getModemPhone }}</td>
                     <td>{{ modem.getModemLocation }}</td>

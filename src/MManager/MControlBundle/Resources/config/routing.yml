@@ -54,6 +54,12 @@ MManagerMControlBundle_modem_showAll:
     requirements:
         _method:  GET|POST
         
+MManagerMControlBundle_modem_updatemodemstatus:
+    pattern:  /modemlist/updatemodemstatus/
+    defaults: { _controller: MManagerMControlBundle:Modem:updateModemStatus }
+    requirements:
+        _method:  GET|POST
+        
 MManagerMControlBundle_modem_deletemodem:
     path:   /deletemodem/
     defaults: { _controller: MManagerMControlBundle:Modem:deleteModem }

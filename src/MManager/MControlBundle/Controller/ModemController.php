@@ -4,6 +4,7 @@
 namespace MManager\MControlBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Response;
 use MManager\MControlBundle\Classes\Gammu;
 use MManager\MControlBundle\Entity\Modem;
 use MManager\MControlBundle\Entity\ModemEnquiry;
@@ -186,5 +187,28 @@ class ModemController extends Controller
     public function getModemGroupById ($modemGroupId)
     {
         return $this->getDoctrine()->getRepository('MManagerMControlBundle:ModemGroup')->find($modemGroupId);
+    }
+       
+    public function updateModemStatusAction(){
+        $request = $this->getRequest();        
+        $data = $request->get('data');
+
+        $em = $this->getDoctrine()->getManager();
+        $modems = $em->getRepository('MManagerMControlBundle:Modem')->findBy(array ('modem_id' => $data));
+        
+        $response = [];
+        
+        if ($modems) {
+            foreach ($modems as $modem) {
+                array_push($response, [
+                    'id' => $modem->getModemId(),
+                    'status' => $modem->getModemStatus()
+                ]);
+            }
+        } else {
+            $response = "";
+        }
+
+        return new Response(json_encode($response)); 
     }
 }

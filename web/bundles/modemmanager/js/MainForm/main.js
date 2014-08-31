@@ -4,10 +4,9 @@ $(document).ready(function(){
         headers: { 
             0: { 
                 sorter: false 
-            } 
+            }
         } 
-    }); 
-    
+    });
     $("#checkall").click(function(){
         checkAllStatus = $("#checkall")[0].checked;
         console.log(checkAllStatus);
@@ -86,5 +85,5 @@ $(document).ready(function(){
     $('#addstring').click(function(){
         $('.timeblocks').append('<tr><td>HelloWorld</td></tr>');
     });
-    
-}); 
+
+});
