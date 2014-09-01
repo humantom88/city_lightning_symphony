@@ -6,7 +6,7 @@
     <link href="{{ asset('bundles/modemmanager/css/modemmanager.css') }}" type="text/css" rel="stylesheet" />
 {% endblock %}
 
-{% block title %}Modems list{% endblock %}
+{% block title %}АСУНО Список модемов{% endblock %}
 {% block body %}
     <table class="table" id="tsorter">
         <thead>
@@ -75,10 +75,11 @@
                 <div class="modal-body">
                     <form action="{{ path('MManagerMControlBundle_modem_showAll') }}" method="post" {{ form_enctype(form) }} class="mmanager">
                         {{ form_errors(form) }}
-                        {{ form_row(form.modem_location) }}
-                        {{ form_row(form.modem_phone) }}
-                        {{ form_row(form.modem_serial) }}
-                        {{ form_row(form.modem_group) }}
+                        {{ form_row(form.modem_location, {'label':'Местонахождение'}) }}
+                        {{ form_row(form.modem_phone, {'label':'Номер телефона'}) }}
+                        {{ form_row(form.modem_serial, {'label':'Серийный номер'}) }}
+                        {{ form_row(form.modem_group, {'label':'Имя группы'}) }}
+                        {{ form_row(form.schedule, {'label':'Расписание'}) }}
                         {{ form_rest(form) }}
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>

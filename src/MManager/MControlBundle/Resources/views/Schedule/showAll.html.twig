@@ -6,7 +6,7 @@
     <link href="{{ asset('bundles/modemmanager/css/modemmanager.css') }}" type="text/css" rel="stylesheet" />
 {% endblock %}
 
-{% block title %}Schedules list{% endblock %}
+{% block title %}АСУНО Расписания{% endblock %}
 
 {% block navigation %}
     <div class="navbar navbar-default">
@@ -18,7 +18,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">SUNO MManager</a>
+                <a class="navbar-brand" href="#">АСУНО "Сокол"</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -36,9 +36,9 @@
     <table class="table" id="tsorter">
         <thead>
             <tr>
-                <th></th>
-                <th>id</th>
-                <th>Schedule Name</th>
+                <th>#</th>
+                <th>ID</th>
+                <th>Название расписания</th>
             </tr>
         </thead>
         <tbody id="modems">
@@ -76,7 +76,7 @@
                 <div class="modal-body">
                     <form action="{{ path('MManagerMControlBundle_schedule_showAll') }}" method="post" {{ form_enctype(form) }} class="mmanager">
                         {{ form_errors(form) }}
-                        {{ form_row(form.schedule_name) }}
+                        {{ form_row(form.schedule_name, { "label" : "Название расписания" }) }}
                         {{ form_rest(form) }}
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>

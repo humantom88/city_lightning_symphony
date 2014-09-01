@@ -19,6 +19,9 @@ function updateModemList() {
                         } else if ("IN2" == data[i].status){
                             $(this).parent().children('.modem_status').html(data[i].status);
                             $(this).parent().children('.modem_status').css('background-color', '#90EE90');
+                        } else {
+                            $(this).parent().children('.modem_status').html("");
+                            $(this).parent().children('.modem_status').css('background-color', '#FFFFFF');
                         }
                     };
                 });

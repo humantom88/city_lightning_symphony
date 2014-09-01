@@ -59,6 +59,7 @@ $(document).ready(function(){
         $.post(url, {
             ids: attr
         });
+        alert('SMS Подготовлены к отправке');
     });
     $('.activeRowModem').dblclick(function(){
         id = $(this).parents('.activeRowModem').context.id;
