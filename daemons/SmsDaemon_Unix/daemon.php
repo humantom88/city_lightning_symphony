@@ -1,6 +1,7 @@
 <?php
 // Без этой директивы PHP не будет перехватывать сигналы
 declare(ticks=1); 
+require_once 'daemonLogger.php';
 
 class Daemon {
     // Максимальное количество дочерних процессов
@@ -9,10 +10,32 @@ class Daemon {
     protected $stop_server = FALSE;
     // Здесь будем хранить запущенные дочерние процессы
     protected $currentJobs = array();
+     
+    protected $logger;
+    
+    private $commandSwitchOn = "5492 out3 pulse2";
+    
+    private $commandSwitchOff = "5492 out3 pulse2";
+    
+    private $gammuPath;
+    
+    private $dbhost;
+    
+    private $dbuser;
+    
+    private $dbpassword;
+    
+    private $dbname;
     
     public $db;
 
-    public function __construct() {
+    public function __construct($gammuPath = "", $dbhost = "localhost", $dbname = "mmanager", $dbuser = "root", $dbpassword = "", $logFilePath) {
+        $this->gammuPath = $gammuPath;
+        $this->dbhost = $dbhost;
+        $this->dbname = $dbname;
+        $this->dbuser = $dbuser;
+        $this->dbpassword = $dbpassword;
+        $this->logger = new DaemonLogger($logFilePath);
         echo "Сonstructed daemon controller".PHP_EOL;
         // Ждем сигналы SIGTERM и SIGCHLD
         pcntl_signal(SIGTERM, array($this, "childSignalHandler"));
@@ -20,7 +43,7 @@ class Daemon {
     }
 
     public function setDbConnection() {
-	$this->db = new PDO('mysql:host=localhost;dbname=mmanager','root','tot@lcontro1');
+	$this->db = new PDO("mysql:host=$this->dbhost;dbname=$this->dbname",$this->dbuser,$this->dbpassword);
 	$this->db->exec('SET NAMES utf8');	
     }
 
@@ -30,63 +53,135 @@ class Daemon {
 
     public function run() {
         echo "Running daemon controller".PHP_EOL;
-
-        // Пока $stop_server не установится в TRUE, гоняем бесконечный цикл
         while (!$this->stop_server) {
-            // Если уже запущено максимальное количество дочерних процессов, ждем их завершения
-            while(count($this->currentJobs) >= $this->maxProcesses) {
-                 sleep(1);
-            }
             $this->launchJob();
-	    sleep(10);
         } 
 	echo  date('Y-m-d-h-m-s') . ': Service closed.';
     }
 
     private function loopCycle() {
-	//Блок 1 Чтение входящих сообщений из папки Inbox, занесение в БД, перенос в архив.
-	$newMessages = $this->checkInbox('/var/spool/gammu/inbox');
+        //Блок 1 Чтение входящих сообщений из папки Inbox, занесение в БД, перенос в архив.
+	$newMessages = $this->checkInbox($this->gammuPath . '\inbox');
 	if ($newMessages) {
-	    $this->insertMessagesToDb ($newMessages);
+            foreach ($newMessages as $k => $newMessage) {
+                if (empty($newMessage['sms_from'])) {
+                    if (!$this->db) {
+                        $this->setDbConnection();
+                        $sql = "SELECT `modem_id` FROM `$this->dbname`.`modems` WHERE `modem_phone`=:modem_from";
+                        $result = $this->db->prepare($sql);
+                        $result->bindParam(':modem_from', $newMessages['sms_from']);
+                        $result->execute();
+                        $mid = $result->fetch();
+
+                        if ($mid) {
+                            $newMessages[$k] = $mid['modem_id'];
+                        }
+                    }
+                }
+            }
+	    $this->insertMessagesToDb($newMessages);
+            $this->updateModemStatus($newMessages);
 	}
 	//Блок 2 Рассылка по расписанию
 	$this->checkSchedule();
-	
     }
-
+    
+    private function updateModemStatus ($newMessages = "")
+    {
+        //ATM2-485,TEST:IN2,11:13:57
+        if (!empty($newMessages)) {
+            foreach ($newMessages as $k => $newMessage) {
+                if($newMessage['sms_text']) {
+                    $res = $this->parseModemAns($newMessage['sms_text']);
+                    if (!empty($res)) {
+                        if (empty($this->db)) {
+                            $this->setDbConnection();
+                        }
+                        $sql = "UPDATE `$this->dbname`.`modems` SET `modem_status`=:modem_status, `last_update`=:last_update WHERE `modem_phone`=:sms_from";
+                        $result = $this->db->prepare($sql);
+                        
+                        echo "Device Answer: ";
+                        print_r($res['device_answer']);
+                        echo "Last Update: ";
+                        print_r(date('Y-m-d H:i:s'));
+                        echo "New Message: ";
+                        print_r($newMessage);
+                        $result->bindParam(':modem_status', $res['device_answer']);
+                        $result->bindParam(':last_update', date('Y-m-d H:i:s'));
+                        $result->bindParam(':sms_from', $newMessage['sms_from']);
+                        $result->execute();
+                    }
+                }
+            }
+        }
+    }
+    
+    private function getModemIdByPhone($modemPhone) 
+    {
+        if (!$this->db) {
+            $this->setDbConnection();
+        }
+        $sql = "SELECT * FROM `$this->dbname`.`modems` WHERE `modem_phone`=:modem_phone";
+        $result = $this->db->prepare($sql);
+        $result->bindParam(':modem_phone', $modemPhone);
+        $result->execute();
+        $modem_id = $result->fetch();
+        
+        $this->closeDbConnection();
+        return $modem_id ? $modem_id['modem_id'] : false;
+    }
+    
     private function insertMessagesToDb ($newMessages){
 	$this->setDbConnection();
-	$sql = "INSERT INTO `mmanager`.`smsmessages` (`sms_text`, `sms_from`, `sms_sentdate`) VALUES (:smsText, :smsFrom, :smsSentDate)";
-	$result = $this->db->prepare($sql);
-	foreach ($newMessages as $newMessage) {
-	    echo "Message\r\n";
-    	    print_r($newMessage);
+        $modem_id = "";
+        
+        $sql1 = "INSERT INTO `$this->dbname`.`smsmessages` (`sms_text`, `sms_from`, `sms_sentdate`) VALUES (:smsText, :smsFrom, :smsSentDate)";
+        $sql2 = "INSERT INTO `$this->dbname`.`smsmessages` (`modem_id`, `sms_text`, `sms_from`, `sms_sentdate`) VALUES (:modem_id, :smsText, :smsFrom, :smsSentDate)";
+        foreach ($newMessages as $newMessage) {
+            
+            if (!empty($newMessage['sms_from'])) {
+                $modem_id = $this->getModemIdByPhone($newMessage['sms_from']);
+                $this->setDbConnection();
+            }
+
+            if (empty($modem_id)) {
+                $result = $this->db->prepare($sql1);
+            } else {
+                $result = $this->db->prepare($sql2);
+                $newMessage['modem_id'] = $modem_id;
+            }
+            
 	    $sentdate = date($newMessage['sms_date']. ' '. $newMessage['sms_time']);
-	    print_r($sentdate);
+        if (!empty($newMessage['modem_id'])) {
+            $result->bindParam(':modem_id', $newMessage['modem_id']);
+        }
 	    $result->bindParam(':smsText', $newMessage['sms_text']);
 	    $result->bindParam(':smsFrom', $newMessage['sms_from']);
 	    $result->bindParam(':smsSentDate', $sentdate);
+          
 	    $result->execute();
+            
+            $this->closeDbConnection();
 	}
-	$this->closeDbConnection();
     }
 
-    private function getModemIdByPhone($phone) {
-	if (!$this->db) {
-	    $this->setDbConnection();
+    private function parseModemAns($answerString) {
+	$arr = explode(",",$answerString);
+        $result = "";
+	if (is_array($arr) && $arr[0] != null) {
+	    $result['device_type'] = $arr[0];
 	}
-	$phone = "";
-	$sql = "SELECT `modem_id` FROM `modems` WHERE modem_phone = :phone";
-	if ($result = $this->db->query($sql)) {
-	    $result->bindParam(':phone', $phone);
-	    $result->execute();
-	    $phone = $result->fetchAll();
-	};
+	if (is_array($arr) && $arr[1] != null) {
+	    $t = explode(':', $arr[1]);
+	    if (is_array($t) && $t[1]) {
+		$result['device_answer'] = $t[1];
+	    }			
+	}
+	if (is_array($arr) && $arr[2] != null) {
+	    $result['response_time'] = $arr[2];
 
-	if ($phone != "" && exist($phone['modem_id'])) {
-	    return $phone['modem_id'];
-	}
-	return false;
+        }
+	return $result ? $result : false;
     }
 
     private function checkSchedule() {
@@ -100,18 +195,29 @@ class Daemon {
         {
             $result->execute();                
             $data = $result->fetchAll();
-	    print_r($data);
+            print_r($data);
 	    foreach ($data as $v) {
                 if ($v['modem_phone']) {
-		    $now = getdate(date('Y-m-d-h-m-s'));
-		    $timeblock_date = date($v['timeblock_date'],'Y-m-d');
-		    $timeblock_starttime = date($v['timeblock_starttime'],'h:m');
-		    $timeblock_endtime = date($v['timeblock_endtime'], 'h:m');
-		    
+		    $now = getdate();
+                    $timeblock_date = getdate(strtotime($v['timeblock_date']));
+                    $timeblock_starttime = getdate(strtotime($v['timeblock_starttime']));
+                    $timeblock_endtime = getdate(strtotime($v['timeblock_endtime']));
+
+                    if ($now['year'] == $timeblock_date['year'] &&
+                        $now['mon'] == $timeblock_date['mon'] &&
+                        $now['mday'] == $timeblock_date['mday']) {
+                        if ($now['hours'] == $timeblock_starttime['hours'] && $now['minutes'] == $timeblock_starttime['minutes']) {
+                            $this->sendSMS($v['modem_phone'], $this->commandSwitchOn);
+                        }
+                        if ($now['hours'] == $timeblock_endtime['hours'] && $now['minutes'] == $timeblock_endtime['minutes']) {
+                            $this->sendSMS($v['modem_phone'], $this->commandSwitchOff);
+                        }
+                    }
+
+                    print_r($timeblock_date);
+                    print_r($timeblock_starttime);
+                    print_r($timeblock_endtime);
 		    print_r($now);
-		    print_r($timeblock_date);
-		    print_r($timeblock_starttime);
-		    print_r($timeblock_endtime);
 
 		    if (date('Y-m-d')==$v['timeblock_date'] && date('h-m')==$v['timeblock_starttime']) {
 			echo 'Sending SwitchOn SMS';
@@ -141,7 +247,7 @@ class Daemon {
             $this->currentJobs[$pid] = TRUE;
 	    //call_user_method('getMessages',$this);
 	    call_user_method('loopCycle', $this);
-	    sleep(10);
+            sleep(59);
         } 
         else { 
             // А этот код выполнится дочерним процессом
@@ -201,8 +307,11 @@ class Daemon {
 	    while(false !== ($file = readdir($handle))) {
 		if ($file != '.' && $file != '..') {
 		    array_push($files, $this->parseInboxFile($file, $inboxPath."/".$file));
-		    copy($inboxPath."/$file",$inboxPath . "/../archive/$file");
-	    	    unlink($inboxPath."/$file");
+                    if (!file_exists($inboxPath . "\\..\\archive\\")) {
+                        mkdir($inboxPath . "\\..\\archive\\");
+                    }
+		    copy($inboxPath."\\$file",$inboxPath . "\\..\\archive\\$file");
+	    	    unlink($inboxPath."\\$file");
 		}
 	    }
         }
@@ -236,5 +345,13 @@ class Daemon {
 	$matches['sms_text'] = file_get_contents($filepath);
     
 	return $matches;	
+    }
+    public function sendSMS($phone, $smsText) {
+        file_put_contents($this->getOutboxPath().'OUT'. $phone . '.txt', $smsText);
+    }
+    
+    public function getOutboxPath() {
+        print_r($this->gammuPath . '\\outbox\\');
+        return $this->gammuPath . "\\outbox\\";
     }
 }

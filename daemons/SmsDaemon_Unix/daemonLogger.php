@@ -1,7 +1,7 @@
 <?php
 
 class DaemonLogger {
-    private $logFile = "log/log.txt";
+    private $logFile = "/log/log.txt";
     
     public function __constuct($logFilePath)
     {
