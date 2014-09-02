@@ -10,7 +10,7 @@ posix_setsid();
 
 $baseDir = dirname(__FILE__);
 
-$config = parse_ini_file($basedir . '/config/config.ini');
+$config = parse_ini_file($baseDir . '/config/config.ini');
 
 ini_set('error_log',$baseDir.'/log/error.log');
 

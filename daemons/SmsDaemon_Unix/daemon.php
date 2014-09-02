@@ -61,7 +61,7 @@ class Daemon {
 
     private function loopCycle() {
         //Блок 1 Чтение входящих сообщений из папки Inbox, занесение в БД, перенос в архив.
-	$newMessages = $this->checkInbox($this->gammuPath . '\inbox');
+	$newMessages = $this->checkInbox($this->gammuPath . 'inbox');
 	if ($newMessages) {
             foreach ($newMessages as $k => $newMessage) {
                 if (empty($newMessage['sms_from'])) {
@@ -307,11 +307,11 @@ class Daemon {
 	    while(false !== ($file = readdir($handle))) {
 		if ($file != '.' && $file != '..') {
 		    array_push($files, $this->parseInboxFile($file, $inboxPath."/".$file));
-                    if (!file_exists($inboxPath . "\\..\\archive\\")) {
-                        mkdir($inboxPath . "\\..\\archive\\");
+                    if (!file_exists($inboxPath . "/../archive/")) {
+                        mkdir($inboxPath . "/../archive/");
                     }
-		    copy($inboxPath."\\$file",$inboxPath . "\\..\\archive\\$file");
-	    	    unlink($inboxPath."\\$file");
+		    copy($inboxPath."/$file",$inboxPath . "/../archive/$file");
+	    	    unlink($inboxPath."/$file");
 		}
 	    }
         }
@@ -351,7 +351,7 @@ class Daemon {
     }
     
     public function getOutboxPath() {
-        print_r($this->gammuPath . '\\outbox\\');
-        return $this->gammuPath . "\\outbox\\";
+        print_r($this->gammuPath . '/outbox/');
+        return $this->gammuPath . "/outbox/";
     }
 }
