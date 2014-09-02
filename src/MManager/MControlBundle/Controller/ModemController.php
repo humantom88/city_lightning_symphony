@@ -93,9 +93,6 @@ class ModemController extends Controller
                 return $this->redirect($this->generateUrl('MManagerMControlBundle_modem_showAll'));
             }
         }        
-        //if (!$modems) {
-        //    throw $this->createNotFoundException('There are no modem registered in Database.');
-        //}
         return $this->render('MManagerMControlBundle:Modem:showall.html.twig', array(
             'modems' => $modems,
             'modemgroups' => $modemgroups,
