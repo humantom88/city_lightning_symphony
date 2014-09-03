@@ -115,11 +115,11 @@ class ModemController extends Controller
         if (!$modems['modem_phone']) {
             foreach ($modems as $modem) {
                 $gammu->sendSMS($modem['modem_phone'], '5492 out3 pulse2');
-                file_put_contents('c:/log/log.txt', date('Y-m-d-h-m-s') . ' Message ' . '"5492 out3 pulse2"' . ' was sent to '. $modem['modem_phone'] . '.' . chr(13) , FILE_APPEND);
+                //file_put_contents('c:/log/log.txt', date('Y-m-d-h-m-s') . ' Message ' . '"5492 out3 pulse2"' . ' was sent to '. $modem['modem_phone'] . '.' . chr(13) , FILE_APPEND);
             }
         } else {
             $gammu->sendSMS($modems['modem_phone'], '5492 out3 pulse2');
-            file_put_contents('c:/log/log.txt', date('Y-m-d-h-m-s') . ' Message ' . '"5492 out3 pulse2"' . ' was sent to '. $modems['modem_phone'] . '.' . chr(13) , FILE_APPEND);
+            //file_put_contents('c:/log/log.txt', date('Y-m-d-h-m-s') . ' Message ' . '"5492 out3 pulse2"' . ' was sent to '. $modems['modem_phone'] . '.' . chr(13) , FILE_APPEND);
         }
         return $this->showAllAction();
     }
@@ -186,7 +186,8 @@ class ModemController extends Controller
         return $this->getDoctrine()->getRepository('MManagerMControlBundle:ModemGroup')->find($modemGroupId);
     }
        
-    public function updateModemStatusAction(){
+    public function updateModemStatusAction()
+    {
         $request = $this->getRequest();        
         $data = $request->get('data');
 

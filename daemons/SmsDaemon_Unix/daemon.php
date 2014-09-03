@@ -29,7 +29,7 @@ class Daemon {
     
     public $db;
 
-    public function __construct($gammuPath = "", $dbhost = "localhost", $dbname = "mmanager", $dbuser = "root", $dbpassword = "", $logFilePath) {
+    public function __construct($gammuPath = "", $dbhost = "localhost", $dbname = "mmanager", $dbuser = "root", $dbpassword = "", $logFilePath = "") {
         $this->gammuPath = $gammuPath;
         $this->dbhost = $dbhost;
         $this->dbname = $dbname;

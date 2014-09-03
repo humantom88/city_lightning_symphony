@@ -1,1 +1,0 @@
-php stop.php

@@ -9,11 +9,18 @@ class Gammu {
     protected $errors_path;
     
     public function __construct($config = "") {
+        $configDir = "../../../config/gammu.ini";
+        $configArr = parse_ini_file($configDir);
         if ($config != "") {
             $this->inboxPath = $config['inbox'];
             $this->outboxPath = $config['outbox'];
             $this->sentPath = $config['sent'];
             $this->errorsPath = $config['errors'];
+        } else if ($configArr != "" && $configArr != null) {
+            $this->inboxPath = $configArr['inbox'];
+            $this->outboxPath = $configArr['outbox'];
+            $this->sentPath = $configArr['sent'];
+            $this->errorsPath = $configArr['errors'];
         }
     }
     

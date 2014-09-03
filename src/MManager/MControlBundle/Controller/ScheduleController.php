@@ -138,7 +138,7 @@ class ScheduleController extends Controller
         $request = $this->getRequest();
         $em = $this->getDoctrine()->getManager();
         $timeblocks = $em->getRepository('MManagerMControlBundle:Timeblock')->findBy(array ('timeblock_id' => $request->request->get('ids')));
-        
+
         if (is_array($timeblocks)) {
             foreach ($timeblocks as $timeblock) {
                 $em->remove($timeblock);
@@ -171,7 +171,7 @@ class ScheduleController extends Controller
 
                 $phpExcelObject = $this->get('phpexcel')->createPHPExcelObject($result->getAbsolutePath());
                 $schedule = $phpExcelObject->getActiveSheet()->toArray(null,true,true,true);
-                
+
                 foreach($schedule as $row)
                 {
                     $newTimeblock = new Timeblock();
@@ -185,10 +185,9 @@ class ScheduleController extends Controller
                     $newDateTime->setTimestamp(strtotime($row['A'] . " " . $row['C']));
                     $newTimeblock->setTimeblockEndtime($newDateTime);
                     $newTimeblock->setScheduleId($em->getRepository('MManagerMControlBundle:Schedule')->find($id));
-                    
+
                     $em->persist($newTimeblock);
                     $em->flush();
-                    
                 }
                 $em->remove($document);
                 $em->flush();
