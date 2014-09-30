@@ -9,7 +9,7 @@ class Gammu {
     protected $errors_path;
     
     public function __construct($config = "") {
-        $configDir = "../../../config/gammu.ini";
+        $configDir = dirname(__DIR__) . "../../../../config/gammu.ini";
         $configArr = parse_ini_file($configDir);
         if ($config != "") {
             $this->inboxPath = $config['inbox'];
