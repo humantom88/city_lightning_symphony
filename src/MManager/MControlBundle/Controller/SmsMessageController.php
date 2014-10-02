@@ -1,5 +1,4 @@
 <?php
-// src/Blogger/BlogBundle/Controller/BlogController.php
 
 namespace MManager\MControlBundle\Controller;
 
@@ -45,10 +44,10 @@ class SmsMessageController extends Controller
 
             if ($form->isValid()) {
                 $em = $this->getDoctrine()->getEntityManager();
-                
+
                 return $this->redirect($this->generateUrl('MManagerMControlBundle_smsmessages_showAll'));
             }
-        }        
+        }
         //if (!$smsmessages) {
         //    throw $this->createNotFoundException('There are no sms smsmessages in Database.');
         //}

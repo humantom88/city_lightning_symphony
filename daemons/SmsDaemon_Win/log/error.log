@@ -463,3 +463,63 @@ Stack trace:
 [28-Aug-2014 11:33:03 Europe/Moscow] PHP Warning:  Missing argument 6 for Daemon::__construct(), called in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\run.php on line 16 and defined in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 33
 [29-Aug-2014 08:28:01 Europe/Moscow] PHP Warning:  Missing argument 6 for Daemon::__construct(), called in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\run.php on line 16 and defined in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 33
 [01-Sep-2014 07:52:34 Europe/Moscow] PHP Warning:  Missing argument 6 for Daemon::__construct(), called in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\run.php on line 16 and defined in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 33
+[30-Sep-2014 09:21:41 Europe/Moscow] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [2002] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение.
+' in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php:44
+Stack trace:
+#0 C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php(44): PDO->__construct('mysql:host=loca...', 'root', '')
+#1 C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php(133): Daemon->setDbConnection()
+#2 C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php(80): Daemon->insertMessagesToDb(Array)
+#3 [internal function]: Daemon->loopCycle()
+#4 C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php(233): call_user_method('loopCycle', Object(Daemon))
+#5 C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php(55): Daemon->launchJob()
+#6 C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\run.php(18): Daemon->run()
+#7 {main}
+  thrown in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 44
+[30-Sep-2014 09:21:46 Europe/Moscow] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [2002] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение.
+' in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php:44
+Stack trace:
+#0 C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php(44): PDO->__construct('mysql:host=loca...', 'root', '')
+#1 C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php(186): Daemon->setDbConnection()
+#2 C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php(84): Daemon->checkSchedule()
+#3 [internal function]: Daemon->loopCycle()
+#4 C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php(233): call_user_method('loopCycle', Object(Daemon))
+#5 C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php(55): Daemon->launchJob()
+#6 C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\run.php(18): Daemon->run()
+#7 {main}
+  thrown in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 44
+[30-Sep-2014 14:36:43 Europe/Moscow] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [2002] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение.
+' in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php:44
+Stack trace:
+#0 C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php(44): PDO->__construct('mysql:host=loca...', 'root', '')
+#1 C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php(186): Daemon->setDbConnection()
+#2 C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php(84): Daemon->checkSchedule()
+#3 [internal function]: Daemon->loopCycle()
+#4 C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php(233): call_user_method('loopCycle', Object(Daemon))
+#5 C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php(55): Daemon->launchJob()
+#6 C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\run.php(18): Daemon->run()
+#7 {main}
+  thrown in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 44
+[30-Sep-2014 14:37:01 Europe/Moscow] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [2002] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение.
+' in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php:44
+Stack trace:
+#0 C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php(44): PDO->__construct('mysql:host=loca...', 'root', '')
+#1 C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php(186): Daemon->setDbConnection()
+#2 C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php(84): Daemon->checkSchedule()
+#3 [internal function]: Daemon->loopCycle()
+#4 C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php(233): call_user_method('loopCycle', Object(Daemon))
+#5 C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php(55): Daemon->launchJob()
+#6 C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\run.php(18): Daemon->run()
+#7 {main}
+  thrown in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 44
+[02-Oct-2014 14:33:33 Europe/Moscow] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [2002] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение.
+' in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php:44
+Stack trace:
+#0 C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php(44): PDO->__construct('mysql:host=loca...', 'root', '')
+#1 C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php(186): Daemon->setDbConnection()
+#2 C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php(84): Daemon->checkSchedule()
+#3 [internal function]: Daemon->loopCycle()
+#4 C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php(233): call_user_method('loopCycle', Object(Daemon))
+#5 C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php(55): Daemon->launchJob()
+#6 C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\run.php(18): Daemon->run()
+#7 {main}
+  thrown in C:\xampp\htdocs\symfony\daemons\SmsDaemon_Win\daemon.php on line 44

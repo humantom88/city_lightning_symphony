@@ -8,18 +8,19 @@
 
 {% block title %}АСУНО Список модемов{% endblock %}
 {% block body %}
-    <table class="table" id="tsorter">
+    <table class="table" id="tsorter" style="border: #ddd solid 1px;">
         <thead>
             <tr>
                 <th>#</th>
                 <th>ID</th>
-                <th>Серийный номер</th>
-                <th>Номер телефона</th>
+                <th>Группа</th>
                 <th>Местонахождение</th>
                 <th>Статус</th>
                 <th>Последнее обновление</th>
-                <th>Группа</th>
+                <th style="background-color:#ccc;"></th>
+                <th>Номер телефона</th>
                 <th>Расписание</th>
+                <th>Серийный номер</th>
             </tr>
         </thead>
         <tbody id="modems">
@@ -28,13 +29,14 @@
                 <tr class="activeRowModem" id="{{ modem.getModemId }}" action="/modemlist/" onselectstart="return false">
                     <td><input type="checkbox" name="checkmodems" class="checker" id="{{ modem.getModemId }}"></td>
                     <td class="modem_id">{{ modem.getModemId }}</td>
-                    <td>{{ modem.getModemSerial }}</td>
-                    <td>{{ modem.getModemPhone }}</td>
+                    <td>{{ modem.getModemGroupId ? modem.getModemGroupId.getModemGroupName }}</td>
                     <td>{{ modem.getModemLocation }}</td>
                     <td class="modem_status">{{ modem.getModemStatus }}</td>
                     <td>{{ modem.getLastUpdate|date('Y-m-d H:i:s') }}</td>
-                    <td>{{ modem.getModemGroupId ? modem.getModemGroupId.getModemGroupName }}</td>
+                    <td style="background-color:#ccc;"></td>
+                    <td>{{ modem.getModemPhone }}</td>
                     <td>{{ modem.getScheduleId ? modem.getScheduleId.getScheduleName }}</td>
+                    <td>{{ modem.getModemSerial }}</td>
                 </tr>
             {% endfor%}
             </form>
