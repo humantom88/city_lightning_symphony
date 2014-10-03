@@ -102,7 +102,7 @@ class ModemController extends Controller
     }
 
     public function sendSMSAction()
-    {
+    {   //При развертывании на изменить директории
         $gammu = new Gammu([
             'inbox' => 'c:/gammu/inbox/',
             'outbox' => 'c:/gammu/outbox/',
